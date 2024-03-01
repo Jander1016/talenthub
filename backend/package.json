@@ -1,0 +1,21 @@
+{
+  "name": "backend_talenthub",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+	"dev": "tsnd --respawn --clear src/app.ts",
+	"build": "rimraf ./dist && tsc",
+	"start": "yarn build && node dist/app.js",
+	"test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.24",
+    "ts-node-dev": "^2.0.0",
+    "rimraf": "^5.0.5"
+  }
+}

@@ -1,5 +1,6 @@
-import SilderImg01 from '/public/images/hero/car1.png'
-import SilderImg02 from '/public/images/hero/car2.png'
+// import SilderImg01 from '/public/images/hero/slide-1.png'
+import SilderImg10 from '/public/images/hero/slide-1.png'
+import SilderImg02 from '/public/images/hero/cartel.jpg'
 import SilderImg03 from '/public/images/hero/car3.png'
 import SilderImg04 from '/public/images/hero/4.png'
 import SilderIcon01 from '/public/images/hero/1.png'
@@ -11,9 +12,9 @@ import ProgressSlider from "./carousel";
 const Hero = () => {
   const items = [
     {
-      img: SilderImg01,
+      img: SilderImg10,
       desc: 'Confiabilidad',
-      buttonIcon: SilderIcon01,
+      //buttonIcon: SilderIcon01,
     },
     {
       img: SilderImg02,

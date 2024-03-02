@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
-import { FiLogIn  } from "react-icons/fi";
+import Search from "../Header/Search"
+import { FiLogIn } from "react-icons/fi";
 import { FaCartArrowDown } from "react-icons/fa6";
-
 
 const Header = () => {
   // Navbar toggle
@@ -81,7 +81,7 @@ const Header = () => {
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
-                  className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                  className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-2 py-[10px] ring-primary focus:ring-2 lg:hidden"
                 >
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
@@ -161,30 +161,33 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
+              <div>
+                <Search />
+              </div>
+              <div className="flex items-center justify-center
+               pr-8 lg:pr-0">
                 <Link
                   href="/signin"
-                  className=" px-7 py-3 text-2xl font-medium text-dark hover:opacity-70 dark:text-white md:block"
+                  className="px-6 py-6 text-2xl  text-dark hover:opacity-70 dark:text-white md:block "
                 >
                   <FiLogIn />
                 </Link>
+                <Link
+                  href="/signup"
+                  className="px-6 py-6 text-2xl font-xl text-dark hover:opacity-70 dark:text-white "
+                >
+                  <FaCartArrowDown />
+                </Link>
                 {/* <Link
                   href="/signup"
-                  className=" px-7 py-3 text-2xl font-medium text-dark hover:opacity-70 dark:text-white md:block"
+                  className="px-7 py-3 text-2xl font-xl text-dark hover:opacity-70 dark:text-white md:block"
                 >
-                  <FontAwesomeIcon icon={faUserPlus} />
+                  <FontAwesomeIcon icon= {faUserPlus} />
                 </Link> */}
                 <div>
                   <ThemeToggler />
                 </div>
-                <div>
-                <Link
-                  href="/signup"
-                  className="px-7 py-3 text-2xl font-medium text-dark hover:opacity-70 dark:text-white md:block"
-                >
-                  <FaCartArrowDown />
-                </Link>
-                </div>
+                
               </div>
             </div>
           </div>

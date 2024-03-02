@@ -50,10 +50,11 @@ const menuData: Menu[] = [
       },
       {
         id: 46,
-        title: "Diseñador UX/UI",
+        title: "Diseñador UX/UI ",
         path: "/signin",
         newTab: false,
       },
+      
     ],
   },
 ];

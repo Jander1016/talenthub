@@ -1,0 +1,72 @@
+{
+  "talents": [
+    {
+      "id": "1",
+      "name": "Antonia López",
+      "image": "/src/assets/img/mobileIcon.png",
+      "category": "Front End",
+      "stack": "Javascript, HTML, CSS.",
+      "experience": "3"
+    },
+
+    {
+      "id": "2",
+      "name": "Pepito Zamora",
+      "image": "/src/assets/img/mobileIcon.png",
+      "category": "Back End",
+      "stack": "MySQL, Mongo DB, Express",
+      "experience": "2"
+    },
+    {
+      "id": "3",
+      "name": "Robustiano Pedroza",
+      "image": "/src/assets/img/mobileIcon.png",
+      "category": "Full Stack",
+      "stack": "MySQL, Mongo DB, Express, Java Script, React",
+      "experience": "4"
+    },
+    {
+      "id": "4",
+      "name": "Charlie Flow",
+      "image": "/src/assets/img/mobileIcon.png",
+      "category": "Diseñador UX/UI",
+      "stack": "Figma, Canva, Photoshop, Premier",
+      "experience": "5"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "title": "Smart Drops",
+      "link": "https://github.com/Marcela3-DesFullStack/SmartDrops_ToDoList",
+      "image": "/src/assets/img/frontendIcon.png",
+      "subject":  "To Do List",
+      "languages": "HTML CSS JavaScript"
+    },
+    {
+      "id": "2",
+      "title": "Selva Urbana",
+      "link": "https://github.com/Marcela3-DesFullStack/SelvaUrbana",
+      "image": "/src/assets/img/frontendIcon.png",
+      "subject":  "E-commerce (Administrator sight)",
+      "languages": "HTML CSS JavaScript React"
+    },
+    {
+      "id": "3",
+      "title": "CIE Project",
+      "link": "https://github.com/Marcela3-DesFullStack/CIE-Project",
+      "image": "/src/assets/img/frontendIcon.png",
+      "subject":  "Landpage",
+      "languages": "HTML CSS"
+    },
+    {
+      "id": "4",
+      "title": "Noria Coders",
+      "link": "https://github.com/neymi-k/NoriaCoders",
+      "image": "/src/assets/img/frontendIcon.png",
+      "subject":  "Interactive playgame",
+      "languages": "HTML CSS Javascript"
+    }
+  ]
+
+}

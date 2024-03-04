@@ -5,29 +5,29 @@ import SingleTestimonial from "./SingleTestimonial";
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Musharof Chy",
-    designation: "Founder @TailGrids",
+    name: "Jander Gómez",
+    designation: "Desarrollador Web Full Stack",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-01.png",
+      "Gracias a TalentHub mis opciones laborales aumentaron en un 80%. He tenido propuestas de acuerdo a mi background de más de 5 clientes. Su profesionalismo es significativo.",
+    image: "/images/testimonials/author-04.png",
     star: 5,
   },
   {
     id: 2,
-    name: "Devid Weilium",
-    designation: "Founder @UIdeck",
+    name: "Alfredo escamilla",
+    designation: "Desarrollador Back End",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "La atención al cliente y el manejo de la página en relación a su diseño es su principal labor. Mi posición actual fue realizada a través de TalenHub. Gracias por todo su apoyo.",
     image: "/images/testimonials/auth-02.png",
-    star: 5,
+    star: 4,
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "Alba Pardo",
+    designation: "Desarrolladora Web Full Stack",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-03.png",
+      "Gracias a TalentHub, mi experiencia y background ha sido visto por empresas de tecnologia en las cuales me quiero seguir desarrollando. Destaco su compromiso y profesionalidad.",
+    image: "/images/testimonials/author-05.png",
     star: 5,
   },
 ];

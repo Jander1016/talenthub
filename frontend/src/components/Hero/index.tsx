@@ -42,12 +42,6 @@ const Hero = () => {
         <div className="container w-full">
         <ProgressSlider items={items} />
 
-          <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
-            <div className="flex justify-center">
-
-              
-            </div>
-          </div>
           <div className="mx-4">
 
             <div className="w-full px-4">

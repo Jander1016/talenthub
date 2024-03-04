@@ -1,6 +1,7 @@
-import SilderImg01 from '/public/images/hero/car1.png'
-import SilderImg02 from '/public/images/hero/car2.png'
-import SilderImg03 from '/public/images/hero/car3.png'
+// import SilderImg01 from '/public/images/hero/slide-1.png'
+import SilderImg10 from '/public/images/hero/slide-1.png'
+import SilderImg02 from '/public/images/hero/2.png'
+import SilderImg03 from '/public/images/hero/3.png'
 import SilderImg04 from '/public/images/hero/4.png'
 import SilderIcon01 from '/public/images/hero/1.png'
 import SilderIcon02 from '/public/images/hero/2.png'
@@ -11,9 +12,9 @@ import ProgressSlider from "./carousel";
 const Hero = () => {
   const items = [
     {
-      img: SilderImg01,
+      img: SilderImg10,
       desc: 'Confiabilidad',
-      buttonIcon: SilderIcon01,
+      //buttonIcon: SilderIcon01,
     },
     {
       img: SilderImg02,
@@ -36,17 +37,11 @@ const Hero = () => {
 
       <section
         id="home"
-        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[50px] md:pt-[100px] xl:pb-[50px] xl:pt-[100px] 2xl:pb-[70px] 2xl:pt-[100px]"
       >
         <div className="container w-full">
         <ProgressSlider items={items} />
 
-          <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
-            <div className="flex justify-center">
-
-              
-            </div>
-          </div>
           <div className="mx-4">
 
             <div className="w-full px-4">

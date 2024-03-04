@@ -18,7 +18,7 @@ const testimonialData: Testimonial[] = [
     designation: "Desarrollador Back End",
     content:
       "La atención al cliente y el manejo de la página en relación a su diseño es su principal labor. Mi posición actual fue realizada a través de TalenHub. Gracias por todo su apoyo.",
-    image: "/images/testimonials/auth-02.png",
+    image: "/images/testimonials/author-02.png",
     star: 4,
   },
   {
@@ -34,11 +34,11 @@ const testimonialData: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+    <section className="dark:bg-bg-color-dark bg-gray-light relative z-12 py-12 md:py-18 lg:py-14">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Lo que nuestros Talentos piensan"
+          paragraph="A continuación citamos la retroalimentación de algunos de nuestros Talentos:"
           center
         />
 

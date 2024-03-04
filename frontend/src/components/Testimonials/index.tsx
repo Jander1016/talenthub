@@ -6,7 +6,7 @@ const testimonialData: Testimonial[] = [
   {
     id: 1,
     name: "Jander Gómez",
-    designation: "Desarrollador Web Full Stack",
+    designation: "IT Manager Uldeck",
     content:
       "Gracias a TalentHub mis opciones laborales aumentaron en un 80%. He tenido propuestas de acuerdo a mi background de más de 5 clientes. Su profesionalismo es significativo.",
     image: "/images/testimonials/author-04.png",
@@ -14,8 +14,8 @@ const testimonialData: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Alfredo escamilla",
-    designation: "Desarrollador Back End",
+    name: "Alfredo Escamilla",
+    designation: "IT Manager TailGrids",
     content:
       "La atención al cliente y el manejo de la página en relación a su diseño es su principal labor. Mi posición actual fue realizada a través de TalenHub. Gracias por todo su apoyo.",
     image: "/images/testimonials/author-02.png",
@@ -24,9 +24,9 @@ const testimonialData: Testimonial[] = [
   {
     id: 3,
     name: "Alba Pardo",
-    designation: "Desarrolladora Web Full Stack",
+    designation: "Developer IT Manager FormBold",
     content:
-      "Gracias a TalentHub, mi experiencia y background ha sido visto por empresas de tecnologia en las cuales me quiero seguir desarrollando. Destaco su compromiso y profesionalidad.",
+      "Mi experiencia y background ha sido visto por empresas de tecnologia en las cuales me quiero seguir desarrollando. Destaco su compromiso y profesionalidad.",
     image: "/images/testimonials/author-05.png",
     star: 5,
   },
@@ -34,11 +34,11 @@ const testimonialData: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-12 py-12 md:py-18 lg:py-14">
+    <section className="dark:bg-bg-color-dark bg-color-gray relative z-12 py-12 md:py-18 lg:py-14">
       <div className="container">
         <SectionTitle
-          title="Lo que nuestros Talentos piensan"
-          paragraph="A continuación citamos la retroalimentación de algunos de nuestros Talentos:"
+          title="Lo que nuestros clientes piensan"
+          paragraph="A continuación citamos la retroalimentación de algunos de nuestros clientes:"
           center
         />
 

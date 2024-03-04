@@ -1,2 +1,2 @@
-Holita, amigos
+console.log("Hola")
 

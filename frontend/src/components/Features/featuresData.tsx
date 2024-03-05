@@ -1,5 +1,4 @@
 import { Feature } from "@/types/feature";
-import { LuDatabaseBackup } from "react-icons/lu";
 
 const featuresData: Feature[] = [
   {

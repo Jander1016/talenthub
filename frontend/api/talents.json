@@ -2,47 +2,44 @@
   "talents": [
     {
       "id": "1",
-      "name": "Antonia López",
-      "image": "/src/assets/img/mobileIcon.png",
-      "category": "Front End",
-      "stack": ["Java Script", "React", "Angular"],
-      "rate": "3"
+      "name_talent": "Antonia López",
+      "avatar": "/src/assets/img/mobileIcon.png",
+      "location": "Madrid-España",
+      "name_service:": "Front End",
+      "name_stack": ["Java Script", "React", "Angular"],
+      "description" : "Apasionada por el diseño web y en el mejoramiento de la experiencia del cliente"
+      
     },
     
     {
       "id": "2",
-      "name": "Pepito Zamora",
-      "image": "/src/assets/img/mobileIcon.png",
-      "category": "Back End",
-      "stack":  ["MySQL", "Mongo DB", "Express"],
-      "rate": "2"
+      "name_talent": "Pepito Zamora",
+      "avatar": "/src/assets/img/mobileIcon.png",
+      "location": "Valencia-España",
+      "name_service": "Back End",
+      "name_stack":  ["MySQL", "Mongo DB", "Express"],
+      "description" : "Experiencia en el diseño de base de datos y el uso de la arquitectura hexagonal."
     },
     {
       "id": "3",
-      "name": "Robustiano Pedroza",
-      "image": "/src/assets/img/mobileIcon.png",
-      "category": "Full Stack",
-      "stack": ["MySQL", "Mongo DB", "Express", "Java Script", "React"],
-      "rate": "4"
+      "name_talent": "Robustiano Pedroza",
+      "avatar": "/src/assets/img/mobileIcon.png",
+      "location": "Barcelona-España",
+      "name_service": "Full Stack",
+      "name_stack": ["MySQL", "Mongo DB", "Express", "Java Script", "React"],
+      "description" : "Experiencia en proyectos front end y back end en diversas instituciones"
     },
     {
       "id": "4",
-      "name": "Charlie Flow",
-      "image": "/src/assets/img/mobileIcon.png",
-      "category": "Diseñador UX/UI",
-      "stack": ["Figma", "Canva", "Photoshop", "Premier"],
-      "rate": "5"
+      "name_talent": "Charlie Flow",
+      "avatar": "/src/assets/img/mobileIcon.png",
+      "location": "Málaga-España",
+      "name_service": "Diseñador UX/UI",
+      "name_stack": ["Figma", "Canva", "Photoshop", "Premier"],
+      "description" : "Reconozco la importancia de la experiencia del usuario y cunmplimiento de los requisitos del cliente."
     }
-  ],
-  
-  "testimonials": [
-    {
-      "id": "1",
-      "testimonials":  "Encargado del desarrollo de una web, app o programa, se ocupa de la “parte de atrás”, del back; es decir, de trabajar con el servidor. Sus funciones son diseñar, revisar y reparar todo para su correcto funcionamiento.",
-      "image": "/src/assets/img/frontendIcon.png",
-      "name": "Antonia López"
-    }
-
   ]
+  
+  
 
 }

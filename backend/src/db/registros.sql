@@ -6,13 +6,13 @@ VALUES
 ('Cliente4', 'password4', 'cliente4@example.com', 'https://randomuser.me/api/portraits/women/4.jpg', 1),
 ('Cliente5', 'password5', 'cliente5@example.com', 'https://randomuser.me/api/portraits/men/5.jpg', 1);
 
-INSERT INTO talents (name_talent, password, email, avatar, is_active, rating)
+INSERT INTO talents (name_talent, password, email, avatar, location, is_active, rating)
 VALUES 
-('Talento1', 'password1', 'talento1@example.com', 'https://randomuser.me/api/portraits/women/6.jpg', 1, 5),
-('Talento2', 'password2', 'talento2@example.com', 'https://randomuser.me/api/portraits/men/7.jpg', 1, 4),
-('Talento3', 'password3', 'talento3@example.com', 'https://randomuser.me/api/portraits/women/8.jpg', 1, 4),
-('Talento4', 'password4', 'talento4@example.com', 'https://randomuser.me/api/portraits/men/9.jpg', 1, 4),
-('Talento5', 'password5', 'talento5@example.com', 'https://randomuser.me/api/portraits/women/10.jpg', 1, 5);
+('Talento1', 'password1', 'talento1@example.com', 'https://randomuser.me/api/portraits/women/6.jpg', "Madrid", 1, 5),
+('Talento2', 'password2', 'talento2@example.com', 'https://randomuser.me/api/portraits/men/7.jpg', "Madrid", 1, 4),
+('Talento3', 'password3', 'talento3@example.com', 'https://randomuser.me/api/portraits/women/8.jpg', "Málaga", 1, 4),
+('Talento4', 'password4', 'talento4@example.com', 'https://randomuser.me/api/portraits/men/9.jpg', "Barcelona", 1, 4),
+('Talento5', 'password5', 'talento5@example.com', 'https://randomuser.me/api/portraits/women/10.jpg', "Madrid", 1, 5);
 
 INSERT INTO services (name_service, description) VALUES 
 ('Backend Development', 'Desarrollo de aplicaciones en el lado del servidor'),

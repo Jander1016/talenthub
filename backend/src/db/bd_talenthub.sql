@@ -23,6 +23,7 @@ CREATE table talents (
     password varchar(200) NOT NULL,
     email varchar(100) NOT NULL,
     avatar varchar(200),
+    location varchar(25),
     is_active tinyint default 1,
     rating int default 0
 );

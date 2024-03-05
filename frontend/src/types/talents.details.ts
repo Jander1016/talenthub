@@ -1,5 +1,5 @@
 
-export type TalentsDetails = {
+export type TalentDetails = {
     talent_id: number;
     name_talent: string,
     password: string;

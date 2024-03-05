@@ -3,9 +3,9 @@
     {
       "id": "1",
       "name_talent": "Antonia López",
-      "avatar": "/src/assets/img/mobileIcon.png",
+      "avatar": "/frontend/public/images/blog/author-01.png",
       "location": "Madrid-España",
-      "name_service:": "Front End",
+      "name_service": "Desarrollador Front End",
       "name_stack": ["Java Script", "React", "Angular"],
       "description" : "Apasionada por el diseño web y en el mejoramiento de la experiencia del cliente"
       
@@ -14,25 +14,25 @@
     {
       "id": "2",
       "name_talent": "Pepito Zamora",
-      "avatar": "/src/assets/img/mobileIcon.png",
+      "avatar": "/frontend/public/images/blog/author-02.png",
       "location": "Valencia-España",
-      "name_service": "Back End",
+      "name_service": "Desarrollador Back End",
       "name_stack":  ["MySQL", "Mongo DB", "Express"],
       "description" : "Experiencia en el diseño de base de datos y el uso de la arquitectura hexagonal."
     },
     {
       "id": "3",
       "name_talent": "Robustiano Pedroza",
-      "avatar": "/src/assets/img/mobileIcon.png",
+      "avatar": "/frontend/public/images/blog/author-01.png",
       "location": "Barcelona-España",
-      "name_service": "Full Stack",
+      "name_service": "Desarrollador Web Full Stack",
       "name_stack": ["MySQL", "Mongo DB", "Express", "Java Script", "React"],
       "description" : "Experiencia en proyectos front end y back end en diversas instituciones"
     },
     {
       "id": "4",
       "name_talent": "Charlie Flow",
-      "avatar": "/src/assets/img/mobileIcon.png",
+      "avatar": "/frontend/public/images/blog/author-03.png",
       "location": "Málaga-España",
       "name_service": "Diseñador UX/UI",
       "name_stack": ["Figma", "Canva", "Photoshop", "Premier"],

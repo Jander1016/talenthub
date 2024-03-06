@@ -3,18 +3,18 @@
     {
       "id": "1",
       "name_talent": "Antonia López",
-      "avatar": "/frontend/public/images/blog/author-01.png",
+      "avatar": "/images/testimonials/author-05.png",
       "location": "Madrid-España",
       "name_service": "Desarrollador Front End",
       "name_stack": ["Java Script", "React", "Angular"],
       "description" : "Apasionada por el diseño web y en el mejoramiento de la experiencia del cliente"
       
     },
-    
+
     {
       "id": "2",
       "name_talent": "Pepito Zamora",
-      "avatar": "/frontend/public/images/blog/author-02.png",
+      "avatar": "/images/testimonials/author-02.png",
       "location": "Valencia-España",
       "name_service": "Desarrollador Back End",
       "name_stack":  ["MySQL", "Mongo DB", "Express"],
@@ -23,7 +23,7 @@
     {
       "id": "3",
       "name_talent": "Robustiano Pedroza",
-      "avatar": "/frontend/public/images/blog/author-01.png",
+      "avatar": "/images/testimonials/author-04.png",
       "location": "Barcelona-España",
       "name_service": "Desarrollador Web Full Stack",
       "name_stack": ["MySQL", "Mongo DB", "Express", "Java Script", "React"],
@@ -32,7 +32,7 @@
     {
       "id": "4",
       "name_talent": "Charlie Flow",
-      "avatar": "/frontend/public/images/blog/author-03.png",
+      "avatar": "/images/testimonials/author-03.png",
       "location": "Málaga-España",
       "name_service": "Diseñador UX/UI",
       "name_stack": ["Figma", "Canva", "Photoshop", "Premier"],

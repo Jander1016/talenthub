@@ -3,7 +3,7 @@ export type TalentDetails = {
     talent_id: number;
     name_talent: string,
     password: string;
-    avatar: JSX.Element;
+    avatar: string;
     email: string;
     location: string;
     is_active: boolean;

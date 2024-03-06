@@ -1,4 +1,4 @@
-import Blog from "@/components/Blog";
+
 import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
@@ -24,9 +24,9 @@ export default function Home() {
       <Features />
       <Video />
       <Brands />
-      <Testimonials />
       <CardTalents />
-      <Blog />
+      <Testimonials />
+           
       <Contact />
     </>
   );

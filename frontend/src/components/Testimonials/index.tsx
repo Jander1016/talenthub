@@ -5,40 +5,40 @@ import SingleTestimonial from "./SingleTestimonial";
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Musharof Chy",
-    designation: "Founder @TailGrids",
+    name: "Jander Gómez",
+    designation: "IT Manager Uldeck",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-01.png",
+      "Gracias a TalentHub mis opciones laborales aumentaron en un 80%. He tenido propuestas de acuerdo a mi background de más de 5 clientes. Su profesionalismo es significativo.",
+    image: "/images/testimonials/author-04.png",
     star: 5,
   },
   {
     id: 2,
-    name: "Devid Weilium",
-    designation: "Founder @UIdeck",
+    name: "Alfredo Escamilla",
+    designation: "IT Manager TailGrids",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-02.png",
-    star: 5,
+      "La atención al cliente y el manejo de la página en relación a su diseño es su principal labor. Mi posición actual fue realizada a través de TalenHub. Gracias por todo su apoyo.",
+    image: "/images/testimonials/author-02.png",
+    star: 4,
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "Alba Pardo",
+    designation: "Developer IT Manager FormBold",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-03.png",
+      "Mi experiencia y background ha sido visto por empresas de tecnologia en las cuales me quiero seguir desarrollando. Destaco su compromiso y profesionalidad.",
+    image: "/images/testimonials/author-05.png",
     star: 5,
   },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+    <section className="dark:bg-bg-color-dark bg-color-gray relative z-12 py-12 md:py-18 lg:py-14">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Lo que nuestros clientes piensan"
+          paragraph="A continuación citamos la retroalimentación de algunos de nuestros clientes:"
           center
         />
 

@@ -1,0 +1,48 @@
+{
+  "talents": [
+    {
+      "id": "1",
+      "name": "Antonia López",
+      "image": "/src/assets/img/mobileIcon.png",
+      "category": "Front End",
+      "stack": ["Java Script", "React", "Angular"],
+      "rate": "3"
+    },
+    
+    {
+      "id": "2",
+      "name": "Pepito Zamora",
+      "image": "/src/assets/img/mobileIcon.png",
+      "category": "Back End",
+      "stack":  ["MySQL", "Mongo DB", "Express"],
+      "rate": "2"
+    },
+    {
+      "id": "3",
+      "name": "Robustiano Pedroza",
+      "image": "/src/assets/img/mobileIcon.png",
+      "category": "Full Stack",
+      "stack": ["MySQL", "Mongo DB", "Express", "Java Script", "React"],
+      "rate": "4"
+    },
+    {
+      "id": "4",
+      "name": "Charlie Flow",
+      "image": "/src/assets/img/mobileIcon.png",
+      "category": "Diseñador UX/UI",
+      "stack": ["Figma", "Canva", "Photoshop", "Premier"],
+      "rate": "5"
+    }
+  ],
+  
+  "testimonials": [
+    {
+      "id": "1",
+      "testimonials":  "Encargado del desarrollo de una web, app o programa, se ocupa de la “parte de atrás”, del back; es decir, de trabajar con el servidor. Sus funciones son diseñar, revisar y reparar todo para su correcto funcionamiento.",
+      "image": "/src/assets/img/frontendIcon.png",
+      "name": "Antonia López"
+    }
+
+  ]
+
+}

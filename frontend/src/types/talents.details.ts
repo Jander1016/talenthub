@@ -7,7 +7,6 @@ export type TalentDetails = {
     email: string;
     location: string;
     is_active: boolean;
-    rating: number;
     name_service: string;
     description: string;
     name_stack: string;

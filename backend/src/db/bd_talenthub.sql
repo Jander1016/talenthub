@@ -19,13 +19,15 @@ CREATE table clients (
 
 CREATE table talents (
     talent_id varchar(40) primary key default(uuid()),
-    name_talent varchar(20) NOT NULL, 
+    nro_identificacion varchar(10) unique not null,
+    name_talent varchar(20) NOT NULL,
     password varchar(200) NOT NULL,
     email varchar(100) NOT NULL,
     avatar varchar(200),
     location varchar(25),
-    is_active tinyint default 1,
-    rating int default 0
+    personal_page varchar(200),
+	talent_description varchar(100),
+    is_active tinyint default 1
 );
 
 CREATE TABLE services (
@@ -63,4 +65,23 @@ create table detail_whishlist(
     foreign key(talent_id) references talents(talent_id),
     foreign key(whishlist_id) references whishlists(whishlist_id)
 );
+
+create table subscriptions(
+	subs_id varchar(40) primary key default(uuid()),
+    description varchar(40) not null,
+    price decimal(9,2) not null,
+    isactive tinyint default 1
+);
+
+create table order_subscription(
+	order_id varchar(40) primary key default(uuid()),
+    order_date datetime NOT NULL,
+    talent_id varchar(40),
+    subs_id varchar(40),
+    is_active tinyint,
+    foreign key(subs_id) references subscriptions(subs_id),
+    foreign key(talent_id) references talents(talent_id)
+)
+
+
 

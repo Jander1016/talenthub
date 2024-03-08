@@ -6,13 +6,14 @@ VALUES
 ('Cliente4', 'password4', 'cliente4@example.com', 'https://randomuser.me/api/portraits/women/4.jpg', 1),
 ('Cliente5', 'password5', 'cliente5@example.com', 'https://randomuser.me/api/portraits/men/5.jpg', 1);
 
-INSERT INTO talents (name_talent, password, email, avatar, location, is_active, rating)
+
+INSERT INTO talents (nro_identificacion, name_talent, password, email, avatar, location, personal_page, talent_description, is_active)
 VALUES 
-('Talento1', 'password1', 'talento1@example.com', 'https://randomuser.me/api/portraits/women/6.jpg', "Madrid", 1, 5),
-('Talento2', 'password2', 'talento2@example.com', 'https://randomuser.me/api/portraits/men/7.jpg', "Madrid", 1, 4),
-('Talento3', 'password3', 'talento3@example.com', 'https://randomuser.me/api/portraits/women/8.jpg', "Málaga", 1, 4),
-('Talento4', 'password4', 'talento4@example.com', 'https://randomuser.me/api/portraits/men/9.jpg', "Barcelona", 1, 4),
-('Talento5', 'password5', 'talento5@example.com', 'https://randomuser.me/api/portraits/women/10.jpg', "Madrid", 1, 5);
+('09738923S', 'John Doe', 'password123', 'john.doe@example.com', 'https://randomuser.me/api/portraits/men/7.jpg', 'Madrid', 'https://personalpage.com/johndoe', 'Full-stack Developer', 1),
+('8990722G', 'Jane Smith', 'pass456', 'jane.smith@example.com', 'https://randomuser.me/api/portraits/women/6.jpg', 'Madrid', 'https://personalpage.com/janesmith', 'UI/UX Designer', 1),
+('X090908Y', 'Bob Johnson', 'secret321', 'bob.johnson@example.com', 'https://randomuser.me/api/portraits/men/4.jpg', 'Málaga', 'https://personalpage.com/bobjohnson', 'Data Scientist', 1),
+('Y090908Y', 'Alice Brown', 'pwd789', 'alice.brown@example.com', 'https://randomuser.me/api/portraits/women/8.jpg', 'Sevilla', 'https://personalpage.com/alicebrown', 'Software Engineer', 1),
+('1768975B', 'Charlie Green', 'secure987', 'charlie.green@example.com', 'https://randomuser.me/api/portraits/men/9.jpg', 'Valencia', 'https://personalpage.com/charliegreen', 'Frontend Developer', 1);
 
 INSERT INTO services (name_service, description) VALUES 
 ('Backend Development', 'Desarrollo de aplicaciones en el lado del servidor'),
@@ -29,9 +30,13 @@ INSERT INTO stacks (name_stack, service_id) VALUES
 ('Flutter', (SELECT service_id FROM services WHERE name_service = 'Mobile Development'));
 
 INSERT INTO talents_stacks (talent_id, stack_id) VALUES 
-((SELECT talent_id FROM talents WHERE name_talent = 'Talento1'), (SELECT stack_id FROM stacks WHERE name_stack = 'Node.js')),
-((SELECT talent_id FROM talents WHERE name_talent = 'Talento2'), (SELECT stack_id FROM stacks WHERE name_stack = 'React.js')),
-((SELECT talent_id FROM talents WHERE name_talent = 'Talento3'), (SELECT stack_id FROM stacks WHERE name_stack = 'Angular.js')),
-((SELECT talent_id FROM talents WHERE name_talent = 'Talento4'), (SELECT stack_id FROM stacks WHERE name_stack = 'Vue.js')),
-((SELECT talent_id FROM talents WHERE name_talent = 'Talento5'), (SELECT stack_id FROM stacks WHERE name_stack = 'Flutter'));
+((SELECT talent_id FROM talents WHERE name_talent = 'John Doe'), (SELECT stack_id FROM stacks WHERE name_stack = 'Node.js')),
+((SELECT talent_id FROM talents WHERE name_talent = 'Jane Smith'), (SELECT stack_id FROM stacks WHERE name_stack = 'React.js')),
+((SELECT talent_id FROM talents WHERE name_talent = 'Bob Johnson'), (SELECT stack_id FROM stacks WHERE name_stack = 'Angular.js')),
+((SELECT talent_id FROM talents WHERE name_talent = 'Alice Brown'), (SELECT stack_id FROM stacks WHERE name_stack = 'Vue.js')),
+((SELECT talent_id FROM talents WHERE name_talent = 'Charlie Green'), (SELECT stack_id FROM stacks WHERE name_stack = 'Flutter'));
 
+insert into subscriptions ( description, price) values ('Gratis 7 dias', 0),
+('1 mes', 5.99),
+('6 meses', 100),
+('12 meses', 100);

@@ -1,23 +1,30 @@
 "use client";
 
-import useFetchApi from '@/components/Services/useFetchApi';
+import { useEffect, useState } from 'react';
 import SectionTitle from "../Common/SectionTitle";
 import HeartToggle from "../Common/heartToggle";
 import Image from 'next/image';
 import Link from "next/link";
+import { GET } from '@/app/api/talents/route';
 
 
 const CardTalents: React.FC = () => {
-  
-  const { data, loading, error } = useFetchApi('http://localhost:3001/talents');
-  
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
+  const [talents, setTalents] = useState([]);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await GET();
+                const talentsData = await response.json();
+                console.log(talentsData);
+                setTalents(talentsData.data);
+            } catch (error) {
+                console.error('Error fetching talents:', error);
+            }
+        }
+
+        fetchData();
+    }, []);
   
   return (
     <section className="py-26 md:py-14 lg:py-14">
@@ -28,7 +35,7 @@ const CardTalents: React.FC = () => {
           center
         />
         <div className="grid grid-cols-1 gap-x-48 gap-y-20 md:grid-cols-2 lg:grid-cols-2 p-4 ">
-            {data && data.map((talent: any) => (
+            {talents && talents.map((talent: any) => (
             <div key={talent.talent_id} className="group relative overflow-hidden rounded-sm bg-white shadow-one duration-700 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark p-4">
               <div className="grid grid-cols-1 gap-x-6 gap-y-20 md:grid-cols-2 lg:grid-cols-2">
                 <div>

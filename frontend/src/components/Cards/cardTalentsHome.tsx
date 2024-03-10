@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from "next/link";
 
 
-const CardTalents: React.FC = () => {
+const CardTalentsHome: React.FC = () => {
   const {data: talents} = useFetch('http://localhost:3001/talents/')
      
   return (
@@ -38,7 +38,7 @@ const CardTalents: React.FC = () => {
               </div>
             </div>
             <div>
-              <p className="mb-3 text-md lg:text-xl text-blue-700 dark:text-gray-400 text-center">{data.description}</p>
+              <p className="mb-3 text-md lg:text-xl text-blue-700 dark:text-gray-400 text-center">{data.talent_description}</p>
               <Link href={`/talents/details/${data.talent_id}`}>
                 <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Ver más
@@ -53,4 +53,4 @@ const CardTalents: React.FC = () => {
   );
 };
 
-export default CardTalents;
+export default CardTalentsHome;

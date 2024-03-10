@@ -7,7 +7,7 @@ import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
-import CardTalents from "@/components/Talents";
+import CardTalentsHome from "@/components/Cards/cardTalentsHome";
 
 export const metadata: Metadata = {
   title: "Free Next.js Template for Startup and SaaS",
@@ -23,7 +23,7 @@ export default function Home() {
       <Features />
       <Video />
       <Brands />
-      <CardTalents />
+      <CardTalentsHome />
       <Testimonials />
            
       <Contact />

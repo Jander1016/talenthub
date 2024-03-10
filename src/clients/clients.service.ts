@@ -12,15 +12,15 @@ export class ClientsService {
     @InjectRepository(Client)
     private clientsRepository:Repository<Client>
   ){
-    
+
   }
 
   async create(createClientDto: CreateClientDto) {
-    return await 'This action adds a new client';
+    return await this.clientsRepository.save(createClientDto);
   }
 
   async findAll() {
-    return await `This action returns all clients`;
+    return await this.clientsRepository.find();
   }
 
   async findOne(id: number) {

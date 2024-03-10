@@ -33,7 +33,6 @@ export class ClientsService {
 
     // Merge the existing client with the updateClientDto
     const updatedClient = this.clientsRepository.merge(existingClient, updateClientDto);
-
     // Save the updated client
     return this.clientsRepository.save(updatedClient);
   }

@@ -13,17 +13,17 @@ export class ClientsService {
   ) {}
 
   async create(createClientDto: CreateClientDto): Promise<Client> {
-    const Client = this.clientsRepository.create(createClientDto);
-    return this.clientsRepository.save(Client);
+    const newClient = this.clientsRepository.create(createClientDto);
+    return this.clientsRepository.save(newClient);
   }
 
   async findAll(): Promise<Client[]> {
     return this.clientsRepository.find();
   }
 
- async findOne(client_id): Promise<Client> {
-  return this.clientsRepository.findOne({ client_id }); // Busca por client_id Y NO DA ERROR
-}
+  async findOne(client_id: string): Promise<Client> {
+    return this.clientsRepository.findOne({ where: { client_id } });
+  }
 
   async update(client_id, updateClientDto: UpdateClientDto): Promise<Client> {
     const existingClient = await this.clientsRepository.findOne(client_id);

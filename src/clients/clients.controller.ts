@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete, Put, NotFoundException, InternalServerErrorException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
 import { ClientsService } from './clients.service';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
@@ -12,7 +12,7 @@ export class ClientsController {
     try {
       return await this.clientsService.create(createClientDto);
     } catch (error) {
-      throw new InternalServerErrorException('Error creating client');
+      return { message: error.message };
     }
   }
 
@@ -21,7 +21,7 @@ export class ClientsController {
     try {
       return await this.clientsService.findAll();
     } catch (error) {
-      throw new InternalServerErrorException('Error fetching clients');
+      return { message: error.message };
     }
   }
 
@@ -30,11 +30,11 @@ export class ClientsController {
     try {
       const client = await this.clientsService.findOne(client_id);
       if (!client) {
-        throw new NotFoundException(`Client with ID ${client_id} not found`);
+        return { message: `Client with ID ${client_id} not found` };
       }
       return client;
     } catch (error) {
-      throw new InternalServerErrorException('Error fetching client');
+      return { message: error.message };
     }
   }
 
@@ -43,17 +43,16 @@ export class ClientsController {
     try {
       return await this.clientsService.update(client_id, updateClientDto);
     } catch (error) {
-      throw new InternalServerErrorException('Error updating client');
+      return { message: error.message };
     }
   }
 
   @Delete(':client_id')
   async remove(@Param('client_id') client_id: string) {
     try {
-      await this.clientsService.remove(client_id);
-      return { message: 'Client deleted successfully' };
+      return await this.clientsService.remove(client_id);
     } catch (error) {
-      throw new InternalServerErrorException('Error deleting client');
+      return { message: error.message };
     }
   }
 }

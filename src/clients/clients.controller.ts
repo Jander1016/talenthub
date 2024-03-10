@@ -8,29 +8,27 @@ export class ClientsController {
   constructor(private readonly clientsService: ClientsService) {}
 
   @Post()
-  create(@Body() createClientDto: CreateClientDto) {
-    const client = this.clientsService.create(createClientDto);
-    return client;
+  async create(@Body() createClientDto: CreateClientDto) {
+    return await this.clientsService.create(createClientDto);
   }
 
   @Get()
-  findAll() {
-    return this.clientsService.findAll();
+  async findAll() {
+    return await this.clientsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('client_id') client_id: string) {
-    return this.clientsService.findOne(client_id);
+  @Get(':client_id')
+  async findOne(@Param('client_id') client_id: string) {
+    return await this.clientsService.findOne(client_id);
   }
-}
 
   @Put(':client_id')
-  update(@Param('client_id') client_id: string, @Body() updateClientDto: UpdateClientDto) {
-    return this.clientsService.update(+id, updateClientDto);
+  async update(@Param('client_id') client_id: string, @Body() updateClientDto: UpdateClientDto) {
+    return await this.clientsService.update(client_id, updateClientDto);
   }
 
   @Delete(':client_id')
-  remove(@Param('client_id') id: string) {
-    return this.clientsService.remove(+id);
+  async remove(@Param('client_id') client_id: string) {
+    return await this.clientsService.remove(client_id);
   }
-
+}

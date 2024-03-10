@@ -1,6 +1,6 @@
 export class CreateClientDto {
   
-  id: string;
+  //client_id: string; se crea automáticamente
   name: string;
   password: string;
   email: string;

@@ -9,7 +9,8 @@ export class ClientsController {
 
   @Post()
   create(@Body() createClientDto: CreateClientDto) {
-    return this.clientsService.create(createClientDto);
+    const client = this.clientsService.create(createClientDto);
+    return client;
   }
 
   @Get()
@@ -18,17 +19,18 @@ export class ClientsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.clientsService.findOne(+id);
+  findOne(@Param('client_id') client_id: string) {
+    return this.clientsService.findOne(client_id);
   }
+}
 
-  @Put(':id')
-  update(@Param('id') id: string, @Body() updateClientDto: UpdateClientDto) {
+  @Put(':client_id')
+  update(@Param('client_id') client_id: string, @Body() updateClientDto: UpdateClientDto) {
     return this.clientsService.update(+id, updateClientDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(':client_id')
+  remove(@Param('client_id') id: string) {
     return this.clientsService.remove(+id);
   }
-}
+

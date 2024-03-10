@@ -23,12 +23,15 @@ export class ClientsService {
     return await this.clientsRepository.find();
   }
 
-  async findOne(id: number) {
-    return await `This action returns a #${id} client`;
+  async findOne(client_id: string) {
+    return await this.clientsRepository.findOneBy({client_id});
   }
+  
+
+
 
   async update(id: number, updateClientDto: UpdateClientDto) {
-    return await `This action updates a #${id} client`;
+    return await this.clientsRepository.update(id, updateClientDto) ;
   }
 
   async remove(id: number) {

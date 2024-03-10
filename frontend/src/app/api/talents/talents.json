@@ -1,7 +1,7 @@
 {
   "talents": [
     {
-      "id": "1",
+      "talent_id": "1",
       "name_talent": "Antonia López",
       "avatar": "/images/testimonials/author-05.png",
       "location": "Madrid-España",
@@ -14,7 +14,7 @@
       "description": "Apasionada por el diseño web y en el mejoramiento de la experiencia del cliente"
     },
     {
-      "id": "2",
+      "talent_id": "2",
       "name_talent": "Pepito Zamora",
       "avatar": "/images/testimonials/author-02.png",
       "location": "Valencia-España",
@@ -27,7 +27,7 @@
       "description": "Experiencia en el diseño de base de datos y el uso de la arquitectura hexagonal."
     },
     {
-      "id": "3",
+      "talent_id": "3",
       "name_talent": "Robustiano Pedroza",
       "avatar": "/images/testimonials/author-04.png",
       "location": "Barcelona-España",
@@ -42,7 +42,7 @@
       "description": "Experiencia en proyectos front end y back end en diversas instituciones"
     },
     {
-      "id": "f35b",
+      "talent_id": "f35b",
       "name_talent": "Macarena Flow",
       "avatar": "/images/testimonials/author-03.png",
       "location": "Asturias-España",

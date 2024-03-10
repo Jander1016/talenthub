@@ -21,9 +21,9 @@ export class ClientsService {
     return this.clientsRepository.find();
   }
 
-  async findOne(client_id): Promise<Client> {
-    return this.clientsRepository.findOne(client_id);
-  }
+ async findOne(client_id): Promise<Client> {
+  return this.clientsRepository.findOne({ client_id }); // Busca por client_id Y NO DA ERROR
+}
 
   async update(client_id, updateClientDto: UpdateClientDto): Promise<Client> {
     const existingClient = await this.clientsRepository.findOne(client_id);

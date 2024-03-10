@@ -17,7 +17,7 @@ export class Client {
   email: string;
 
   @Column()
-  avatar
+  avatar: string;
 
   @Column({default:1})
   isActive: number;

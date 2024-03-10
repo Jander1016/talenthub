@@ -25,12 +25,16 @@ const SignupPage = () => {
                 <form>
                 <div className="mb-6">
                     <button className="shadow-submit dark:shadow-submit-dark flex w-full items-center justify-center rounded-sm bg-sky-900 px-9 py-4 text-base font-medium text-white duration-300 hover:bg-sky-400/90">
-                      Soy un cliente.
+                    <Link href="/newclient">
+                    Soy un cliente.
+                  </Link>
                     </button>
                   </div>
                   <div className="mb-6">
                     <button className="shadow-submit dark:shadow-submit-dark flex w-full items-center justify-center rounded-sm bg-amber-600 px-9 py-4 text-base font-medium text-white duration-300 hover:bg-amber-300 bg-amber-600/90">
-                      Soy un talento.
+                    <Link href="/newtalent">
+                    Soy un talento.
+                  </Link>
                     </button>
                   </div>
                   <div className="mb-8 flex">
@@ -44,7 +48,7 @@ const SignupPage = () => {
                           id="checkboxLabel"
                           className="sr-only"
                         />
-                        <div className="box mr-4 mt-1 flex h-5 w-5 items-center justify-center rounded border border-body-color border-opacity-20 dark:border-white dark:border-opacity-10">
+                        {/* <div className="box mr-4 mt-1 flex h-5 w-5 items-center justify-center rounded border border-body-color border-opacity-20 dark:border-white dark:border-opacity-10">
                           <span className="opacity-0">
                             <svg
                               width="11"
@@ -61,19 +65,19 @@ const SignupPage = () => {
                               />
                             </svg>
                           </span>
-                        </div>
+                        </div> */}
                       </div>
                       <span>
-                        Al crear la cuenta, acepta nuestros
+                        Las cuentas de Talentos deberán ser aprobadas por el sfatt de
                         <a href="#0" className="text-primary hover:underline">
                           {" "}
-                          Términos y condiciones{" "}
+                          TalentHub.{" "}
                         </a>
-                        , así como,
-                        <a href="#0" className="text-primary hover:underline">
+                        Recibirás un correo a la dirección que nos proporciones con el proceso necesario para validar tu cuenta.
+                        {/* <a href="#0" className="text-primary hover:underline">
                           {" "}
                           Nuestra política de privacidad.{" "}
-                        </a>
+                        </a> */}
                       </span>
                     </label>
                   </div>

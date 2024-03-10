@@ -1,31 +1,16 @@
 "use client";
-
-import { useEffect, useState } from 'react';
+import useFetch from '../Services/useFetch';
+import { GET } from '@/app/api/talents/route';
 import SectionTitle from "../Common/SectionTitle";
 import HeartToggle from "../Common/heartToggle";
 import Image from 'next/image';
 import Link from "next/link";
-import { GET } from '@/app/api/talents/route';
+
 
 
 const CardTalents: React.FC = () => {
-  const [talents, setTalents] = useState([]);
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await GET();
-                const talentsData = await response.json();
-                console.log(talentsData);
-                setTalents(talentsData.data);
-            } catch (error) {
-                console.error('Error fetching talents:', error);
-            }
-        }
-
-        fetchData();
-    }, []);
-  
+  const {data: talents} = useFetch('http://localhost:3001/talents/')
+     
   return (
     <section className="py-26 md:py-14 lg:py-14">
       <div className="container">

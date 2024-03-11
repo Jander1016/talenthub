@@ -1,6 +1,5 @@
-import CardDetails from '@/components/Cards/cardDetails'
+import CardDetails from '@/components/details/cardDetails'
 import React from 'react'
-
 
 const pageDetails = () => {
     return (

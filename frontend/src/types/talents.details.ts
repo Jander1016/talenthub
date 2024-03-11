@@ -1,6 +1,6 @@
 
 export type TalentDetails = {
-    talent_id: number;
+    talent_id?: number;
     name_talent: string;
     nro_identification: string;
     password: string;

@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-const handleSearch= (term: string) => {
+const Search= () => {
     
     return (
         <form className="max-w-md mx-auto hidden sm:block">   
@@ -31,5 +31,5 @@ const handleSearch= (term: string) => {
     );
 }
 
-export default handleSearch;
+export default Search;
 

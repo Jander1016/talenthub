@@ -26,8 +26,15 @@ const Header = () => {
     }
   };
   useEffect(() => {
+    const handleScroll = () => {
+      handleStickyNavbar();
+   };
     window.addEventListener("scroll", handleStickyNavbar);
-  });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+   };
+  }, []);
+ 
 
   // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
@@ -81,6 +88,7 @@ const Header = () => {
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
+                  aria-expanded={navbarOpen}
                   className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-2 py-[10px] ring-primary focus:ring-2 lg:hidden"
                 >
                   <span
@@ -144,9 +152,9 @@ const Header = () => {
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
-                              {menuItem.submenu.map((submenuItem, index) => (
+                              {menuItem.submenu && menuItem.submenu.map((submenuItem, index) => (
                                 <Link
-                                  href={submenuItem.path}
+                                  href={submenuItem.path || '/default-path'}
                                   key={index}
                                   className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
                                 >

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
-import Search from "../Header/Search"
+import Search from "../Search/Search"
 import { FiLogIn } from "react-icons/fi";
 import { FaCartArrowDown } from "react-icons/fa6";
 

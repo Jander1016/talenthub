@@ -1,7 +1,9 @@
+"use client";
 import React from 'react';
 
-const Search= () => {
 
+const handleSearch= (term: string) => {
+    
     return (
         <form className="max-w-md mx-auto hidden sm:block">   
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white ">Search</label>
@@ -29,5 +31,5 @@ const Search= () => {
     );
 }
 
-export default Search;
+export default handleSearch;
 

@@ -1,13 +1,17 @@
 'use client';
+import { useContext } from 'react';
+import { SearchContext } from '@/app/search/page';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import useDebouncedCallback from '../Services/useDebounceCallback';
 
 const Search = () => {
+    const { setSearchTerm } = useContext(SearchContext);
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter()
 
     const handleSearch = useDebouncedCallback((term) => {
+        setSearchTerm(term);
         const params = new URLSearchParams(searchParams);
         if (term) {
             params.set('query', term);

@@ -1,11 +1,12 @@
-"use client";
-
 import { ThemeProvider } from "next-themes";
+import { SearchProvider } from "./search/page"; 
 
-export function Providers({ children }: { children: React.ReactNode }) {
-  return (
+export function Providers({ children }) {
+ return (
     <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
-      {children}
+      <SearchProvider>
+        {children}
+      </SearchProvider>
     </ThemeProvider>
-  );
+ );
 }

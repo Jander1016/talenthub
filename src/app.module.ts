@@ -6,6 +6,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Client } from './clients/entities/client.entity';
 import { ServicesModule } from './services/services.module';
 import { Service } from './services/entities/service.entity';
+import { AdminsModule } from './admins/admins.module';
+import { TalentsModule } from './talents/talents.module';
+import { StacksModule } from './stacks/stacks.module';
+import { TalentsStacksModule } from './talents_stacks/talents_stacks.module';
+import { WishlistsModule } from './wishlists/wishlists.module';
+import { DetailWishlistModule } from './detail_wishlist/detail_wishlist.module';
 
 
 @Module({
@@ -25,7 +31,25 @@ import { Service } from './services/entities/service.entity';
     ClientsModule,
 
 
-    ServicesModule],
+    ServicesModule,
+
+
+    AdminsModule,
+
+
+    TalentsModule,
+
+
+    StacksModule,
+
+
+    TalentsStacksModule,
+
+
+    WishlistsModule,
+
+
+    DetailWishlistModule],
     
   controllers: [AppController],
   providers: [AppService],

@@ -41,7 +41,11 @@ export class ClientsController {
   @Put(':client_id')
   async update(@Param('client_id') client_id: string, @Body() updateClientDto: UpdateClientDto) {
     try {
-      return await this.clientsService.update(client_id, updateClientDto);
+      const updatedClient = await this.clientsService.update(client_id, updateClientDto);
+      if (!updatedClient) {
+        return { message: `Client with ID ${client_id} not found` };
+      }
+      return updatedClient;
     } catch (error) {
       return { message: error.message };
     }

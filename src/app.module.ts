@@ -17,7 +17,7 @@ import { Service } from './services/entities/service.entity';
       username:'root',
       password:'Espapo1986+',
       database:'db_talenthub',
-      entities:[Client],
+      entities:[Client, Service],
       synchronize:true
     }),
 

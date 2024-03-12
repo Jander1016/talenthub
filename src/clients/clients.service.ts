@@ -25,16 +25,17 @@ export class ClientsService {
     return this.clientsRepository.findOne({ where: { client_id } });
   }
 
-  async update(client_id, updateClientDto: UpdateClientDto): Promise<Client> {
-    const existingClient = await this.clientsRepository.findOne(client_id);
+  async update(client_id: string, updateClientDto: UpdateClientDto): Promise<Client> {
+    const existingClient = await this.clientsRepository.findOne({ where: { client_id } });
     if (!existingClient) {
       throw new NotFoundException(`Client with ID ${client_id} not found`);
     }
-
+  
     // Merge the existing client with the updateClientDto
-    const updatedClient = this.clientsRepository.merge(existingClient, updateClientDto);
+    this.clientsRepository.merge(existingClient, updateClientDto);
+  
     // Save the updated client
-    return this.clientsRepository.save(updatedClient);
+    return this.clientsRepository.save(existingClient);
   }
 
   async remove(client_id: string): Promise<void> {

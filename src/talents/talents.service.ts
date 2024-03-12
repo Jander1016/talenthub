@@ -1,26 +1,44 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Talent } from './entities/talent.entity';
+import { Repository } from 'typeorm';
 import { CreateTalentDto } from './dto/create-talent.dto';
 import { UpdateTalentDto } from './dto/update-talent.dto';
 
 @Injectable()
 export class TalentsService {
-  create(createTalentDto: CreateTalentDto) {
-    return 'This action adds a new talent';
+  constructor(
+    @InjectRepository(Talent)
+    private talentsRepository: Repository<Talent>,
+  ) {}
+
+  async create(createTalentDto: CreateTalentDto): Promise<Talent> {
+    const newTalent = this.talentsRepository.create(createTalentDto);
+    return this.talentsRepository.save(newTalent);
   }
 
-  findAll() {
-    return `This action returns all talents`;
+  async findAll(): Promise<Talent[]> {
+    return this.talentsRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} talent`;
+  async findOne(talent_id: string): Promise<Talent> {
+    return this.talentsRepository.findOne({ where: { talent_id } });
   }
 
-  update(id: number, updateTalentDto: UpdateTalentDto) {
-    return `This action updates a #${id} talent`;
+  async update(talent_id, updateTalentDto: UpdateTalentDto): Promise<Talent> {
+    const existingTalent = await this.talentsRepository.findOne(talent_id);
+    if (!existingTalent) {
+      throw new NotFoundException(`Talent with ID ${talent_id} not found`);
+    }
+
+    const updatedTalent = this.talentsRepository.merge(existingTalent, updateTalentDto);
+    return this.talentsRepository.save(updatedTalent);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} talent`;
+  async remove(talent_id: string): Promise<void> {
+    const result = await this.talentsRepository.delete(talent_id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`Talent with ID ${talent_id} not found`);
+    }
   }
 }

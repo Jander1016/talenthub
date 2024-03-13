@@ -1,34 +1,34 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
 import { StacksService } from './stacks.service';
 import { CreateStackDto } from './dto/create-stack.dto';
 import { UpdateStackDto } from './dto/update-stack.dto';
 
-@Controller('stacks')
+@Controller('api/stacks')
 export class StacksController {
   constructor(private readonly stacksService: StacksService) {}
 
   @Post()
-  create(@Body() createStackDto: CreateStackDto) {
-    return this.stacksService.create(createStackDto);
+  async create(@Body() createStackDto: CreateStackDto) {
+    return await this.stacksService.create(createStackDto);
   }
 
   @Get()
-  findAll() {
-    return this.stacksService.findAll();
+  async findAll() {
+    return await this.stacksService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.stacksService.findOne(+id);
+  @Get(':stack_id')
+  async findOne(@Param('stack_id') stack_id: string) {
+    return await this.stacksService.findOne(stack_id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateStackDto: UpdateStackDto) {
-    return this.stacksService.update(+id, updateStackDto);
+  @Put(':stack_id')
+  async update(@Param('stack_id') stack_id: string, @Body() updateStackDto: UpdateStackDto) {
+    return await this.stacksService.update(stack_id, updateStackDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.stacksService.remove(+id);
+  @Delete(':stack_id')
+  async remove(@Param('stack_id') stack_id: string) {
+    return await this.stacksService.remove(stack_id);
   }
 }

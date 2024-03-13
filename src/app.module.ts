@@ -40,7 +40,7 @@ import { DetailWishlistModule } from './detail_wishlist/detail_wishlist.module';
       username:'root',
       password:'Espapo1986+',
       database:'db_talenthub',
-      entities:[Client, Service, Talent],
+      entities:[Client, Service, Talent, Stack, Wishlist, DetailWishlist ],
       synchronize:true
     }),
 

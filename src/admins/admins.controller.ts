@@ -1,34 +1,62 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
 import { AdminsService } from './admins.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
 
-@Controller('admins')
+@Controller('api/admins')
 export class AdminsController {
   constructor(private readonly adminsService: AdminsService) {}
 
   @Post()
-  create(@Body() createAdminDto: CreateAdminDto) {
-    return this.adminsService.create(createAdminDto);
+  async create(@Body() createAdminDto: CreateAdminDto) {
+    try {
+      return await this.adminsService.create(createAdminDto);
+    } catch (error) {
+      return { message: error.message };
+    }
   }
 
   @Get()
-  findAll() {
-    return this.adminsService.findAll();
+  async findAll() {
+    try {
+      return await this.adminsService.findAll();
+    } catch (error) {
+      return { message: error.message };
+    }
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.adminsService.findOne(+id);
+  @Get(':admin_id')
+  async findOne(@Param('admin_id') admin_id) {
+    try {
+      const admin = await this.adminsService.findOne(admin_id);
+      if (!admin) {
+        return { message: `Admin with ID ${admin_id} not found` };
+      }
+      return admin;
+    } catch (error) {
+      return { message: error.message };
+    }
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAdminDto: UpdateAdminDto) {
-    return this.adminsService.update(+id, updateAdminDto);
+  @Put(':admin_id')
+  async update(@Param('admin_id') admin_id, @Body() updateAdminDto: UpdateAdminDto) {
+    try {
+      const updatedAdmin = await this.adminsService.update(admin_id, updateAdminDto);
+      if (!updatedAdmin) {
+        return { message: `Admin with ID ${admin_id} not found` };
+      }
+      return updatedAdmin;
+    } catch (error) {
+      return { message: error.message };
+    }
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.adminsService.remove(+id);
+  @Delete(':admin_id')
+  async remove(@Param('admin_id') admin_id) {
+    try {
+      return await this.adminsService.remove(admin_id);
+    } catch (error) {
+      return { message: error.message };
+    }
   }
 }

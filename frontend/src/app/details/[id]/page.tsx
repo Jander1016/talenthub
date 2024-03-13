@@ -1,4 +1,4 @@
-import CardDetails from '@/components/details/cardDetails'
+import CardDetails from '@/app/talents/[talent_id]/page'
 import React from 'react'
 
 const pageDetails = () => {

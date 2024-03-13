@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server api/talents.json --port 3001"
+    "server": "json-server src/talents.json --port 3001"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

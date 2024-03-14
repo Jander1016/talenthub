@@ -1,7 +1,7 @@
 {
   "talents": [
     {
-      "talent_id": "1",
+      "id": "1",
       "name_talent": "Antonia López",
       "nro_identification": "X345678",
       "avatar": "/images/testimonials/author-05.png",
@@ -16,7 +16,7 @@
       "talent_description": "Apasionada por el diseño web y en el mejoramiento de la experiencia del cliente"
     },
     {
-      "talent_id": "2",
+      "id": "2",
       "name_talent": "Pepito Zamora",
       "nro_identification": "D345670",
       "avatar": "/images/testimonials/author-02.png",

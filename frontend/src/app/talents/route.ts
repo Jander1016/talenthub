@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const response = await fetch('http://localhost:3001/talents');
-  const talents = await response.json();
-  return NextResponse.json(talents);
+  const response = await fetch(`${process.env.API_URL}`);
+  const talentsjson = await response.json();
+  return NextResponse.json(talentsjson);
 }
 
 

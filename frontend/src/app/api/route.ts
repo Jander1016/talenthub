@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 
-export async function GET () {
- return NextResponse.json ({
-    hello: "world",
- });
-
+export async function fetchAll(talent_id: string) {
+  const response = await fetch(`${process.env.API_URL}?talent_id=${talent_id}`);
+  const talentsjson = await response.json();
+  return NextResponse.json(talentsjson);
 }
 
 export async function POST  ( request:Request) {

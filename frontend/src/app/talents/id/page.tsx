@@ -1,26 +1,30 @@
-"use client";
+'use client'
+import { fetchAll } from "@/app/api/route";
 import HeartToggle from "@/components/Common/heartToggle";
+import { usePathname } from "next/navigation";
+import { NextResponse } from "next/server";
 
 interface Talent {
     name_talent: string;
-    talent_id: number;
+    talent_id: string;
     avatar: string;
     name_service: string;
     location: string;
     talent_description: string;
-    
 } 
 
-const TalentDetails = ({ data: talents }) => {
-  
+const TalentDetails = () => {
+ const pathname = usePathname().split('/')
+  const id: string = pathname[2]
 
-
+  const talent = fetchAll(id).then(resp=> console.log(resp))
+  // console.log(talent)
  return (
       
     <section className="py-26 md:py-14 lg:py-14">
       
-        <div className="grid grid-cols-1 gap-x-48 gap-y-20 md:grid-cols-2 lg:grid-cols-2 p-4 ">
-          {talents && talents.map((data: any) => (
+      <div className="grid grid-cols-1 gap-x-48 gap-y-20 md:grid-cols-2 lg:grid-cols-2 p-4 ">
+          {Array.isArray(talent) && talent.map((data: any) => (
           <div key={data.talent_id} className="group relative overflow-hidden rounded-sm bg-white shadow-one duration-700 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark p-4">
             <div className="grid grid-cols-1 gap-x-6 gap-y-20 md:grid-cols-2 lg:grid-cols-2">
               <div>

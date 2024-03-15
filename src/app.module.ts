@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
+
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -72,5 +74,8 @@ config(); // Cargar variables de entorno desde el archivo .env
 
   controllers: [AppController],
   providers: [AppService],
+
 })
+
+
 export class AppModule {}

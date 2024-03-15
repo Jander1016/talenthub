@@ -25,15 +25,17 @@ export class TalentsService {
     return this.talentsRepository.findOne({ where: { talent_id } });
   }
 
-  async update(talent_id, updateTalentDto: UpdateTalentDto): Promise<Talent> {
-    const existingTalent = await this.talentsRepository.findOne(talent_id);
-  
+  async update(talent_id: string, updateTalentDto: UpdateTalentDto): Promise<Talent> {
+    const existingTalent = await this.talentsRepository.findOne({ where: { talent_id } });
     if (!existingTalent) {
       throw new NotFoundException(`Talent with ID ${talent_id} not found`);
     }
   
-    const updatedTalent = this.talentsRepository.merge(existingTalent, updateTalentDto);
-    return this.talentsRepository.save(updatedTalent);
+  
+    this.talentsRepository.merge(existingTalent, updateTalentDto);
+  
+  
+    return this.talentsRepository.save(existingTalent);
   }
 
   async remove(talent_id: string): Promise<void> {

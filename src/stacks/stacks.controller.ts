@@ -1,13 +1,16 @@
-import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { StacksService } from './stacks.service';
 import { CreateStackDto } from './dto/create-stack.dto';
 import { UpdateStackDto } from './dto/update-stack.dto';
+import { StackValidationPipe } from '../pipes/stack-validation.pipe';
+import { Stack } from './entities/stack.entity';
 
 @Controller('api/stacks')
 export class StacksController {
   constructor(private readonly stacksService: StacksService) {}
 
   @Post()
+  @UsePipes(new ValidationPipe()) // Utiliza el ValidationPipe proporcionado por NestJS
   async create(@Body() createStackDto: CreateStackDto) {
     return await this.stacksService.create(createStackDto);
   }
@@ -23,6 +26,7 @@ export class StacksController {
   }
 
   @Put(':stack_id')
+  @UsePipes(new ValidationPipe()) // Utiliza el ValidationPipe proporcionado por NestJS
   async update(@Param('stack_id') stack_id: string, @Body() updateStackDto: UpdateStackDto) {
     return await this.stacksService.update(stack_id, updateStackDto);
   }

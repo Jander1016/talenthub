@@ -1,13 +1,15 @@
-import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ClientsService } from './clients.service';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
+import { ClientValidationPipe } from '../pipes/client-validation.pipe';
 
 @Controller('api/clients')
 export class ClientsController {
   constructor(private readonly clientsService: ClientsService) {}
 
   @Post()
+  @UsePipes(new ValidationPipe()) // Utiliza el ValidationPipe proporcionado por NestJS
   async create(@Body() createClientDto: CreateClientDto) {
     try {
       return await this.clientsService.create(createClientDto);
@@ -39,6 +41,7 @@ export class ClientsController {
   }
 
   @Put(':client_id')
+  @UsePipes(new ValidationPipe()) // Utiliza el ValidationPipe proporcionado por NestJS
   async update(@Param('client_id') client_id: string, @Body() updateClientDto: UpdateClientDto) {
     try {
       const updatedClient = await this.clientsService.update(client_id, updateClientDto);
@@ -59,6 +62,5 @@ export class ClientsController {
     } catch (error) {
       return { message: error.message };
     }
-  
   }
 }

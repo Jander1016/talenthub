@@ -1,20 +1,12 @@
-import { Entity, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Talent } from '../talents/entities/talent.entity';
-import { Stack } from '../stacks/entities/stack.entity';
+import { PipeTransform, Injectable, BadRequestException } from '@nestjs/common';
+import { TalentsStack } from '../talents_stacks/entities/talents_stack.entity';
 
-@Entity({ name: 'talents_stacks' })
-export class TalentsStack {
-  @PrimaryColumn({ name: 'talent_id' })
-  talent_id: string;
-
-  @PrimaryColumn({ name: 'stack_id' })
-  stack_id: string;
-
-  @ManyToOne(() => Talent, { eager: true })
-  @JoinColumn({ name: 'talent_id' })
-  talent: Talent;
-
-  @ManyToOne(() => Stack, { eager: true })
-  @JoinColumn({ name: 'stack_id' })
-  stack: Stack;
+@Injectable()
+export class TalentsStackValidationPipe implements PipeTransform {
+  transform(value: any): TalentsStack {
+    if (!value.talent_id || !value.stack_id) {
+      throw new BadRequestException('Talent ID and Stack ID are required');
+    }
+    return value;
+  }
 }

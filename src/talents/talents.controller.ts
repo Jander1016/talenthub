@@ -50,12 +50,12 @@ export class TalentsController {
     }
   
 
-  @Delete(':talent_id')
-  async remove(@Param('talent_id') talent_id: string) {
-    try {
-      return await this.talentsService.remove(talent_id);
-    } catch (error) {
-      return { message: error.message };
-    }
-  }
-}
+    @Delete(':talent_id')
+    async remove(@Param('talent_id') talent_id: string) {
+      try {
+        await this.talentsService.remove(talent_id);
+        return { message: `Talent with ID ${talent_id} has been successfully deleted` };
+      } catch (error) {
+        return { message: error.message };
+      }
+}}

@@ -54,9 +54,11 @@ export class ClientsController {
   @Delete(':client_id')
   async remove(@Param('client_id') client_id: string) {
     try {
-      return await this.clientsService.remove(client_id);
+      await this.clientsService.remove(client_id);
+      return { message: `Client with ID ${client_id} has been successfully deleted` };
     } catch (error) {
       return { message: error.message };
     }
+  
   }
 }

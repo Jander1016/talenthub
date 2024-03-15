@@ -52,9 +52,11 @@ export class AdminsController {
   }
 
   @Delete(':admin_id')
-  async remove(@Param('admin_id') admin_id) {
+  async remove(@Param('admin_id') admin_id: string) {
     try {
-      return await this.adminsService.remove(admin_id);
+      const id = parseInt(admin_id, 40); // Convert admin_id from string to number
+      await this.adminsService.remove(id);
+      return { message: `The admin with ID ${id} has been successfully deleted` };
     } catch (error) {
       return { message: error.message };
     }

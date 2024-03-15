@@ -1,6 +1,5 @@
 # compiled output
 /dist
-/node_modules
 /build
 
 # Logs
@@ -54,3 +53,6 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Ignorar node_modules para evitar subir al repositorio Git
+node_modules/

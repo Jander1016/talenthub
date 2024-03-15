@@ -6,4 +6,3 @@ export class CreateTalentDto {
   isActive: boolean;
   rating: number;
 }
-

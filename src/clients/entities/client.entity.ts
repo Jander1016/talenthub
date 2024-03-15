@@ -1,35 +1,26 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, PrimaryColumn, Column, OneToMany } from 'typeorm';
+import { Wishlist } from '../../wishlists/entities/wishlist.entity'; // Asegúrate de importar correctamente la entidad Wishlist
 
-
-
-@Entity()
+@Entity({ name: 'clients' })
 export class Client {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn({ type: 'varchar', length: 40 })
   client_id: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 20, nullable: false })
   name: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 200, nullable: false })
   password: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 100, nullable: false })
   email: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 200, nullable: true })
   avatar: string;
 
-  @Column({
-    default: true,
-    transformer: {
-      to(value: boolean): number {
-        return value ? 1 : 0;
-      },
-      from(value: number): boolean {
-        return value === 1;
-      },
-    },
-  })
-  isActive: boolean;
-}
+  @Column({ type: 'tinyint', default: 1 })
+  is_active: number;
 
+  @OneToMany(() => Wishlist, wishlist => wishlist.client)
+  wishlists: Wishlist[];
+}

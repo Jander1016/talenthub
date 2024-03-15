@@ -1,23 +1,24 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'talents' }) // Especifica el nombre de la tabla en la base de datos
 export class Talent {
   @PrimaryGeneratedColumn('uuid')
   talent_id: string;
 
-  @Column()
+  @Column({ name: 'name_talent', nullable: false }) // Especifica el nombre de la columna y que no puede ser nula
   name_talent: string;
 
-  @Column()
+  @Column({ name: 'password', nullable: false }) // Especifica el nombre de la columna y que no puede ser nula
   password: string;
 
-  @Column()
+  @Column({ name: 'email', nullable: false }) // Especifica el nombre de la columna y que no puede ser nula
   email: string;
 
-  @Column()
+  @Column({ name: 'avatar', nullable: true }) // Especifica el nombre de la columna y que puede ser nula
   avatar: string;
 
   @Column({
+    name: 'is_active',
     default: true,
     transformer: {
       to(value: boolean): number {
@@ -30,7 +31,6 @@ export class Talent {
   })
   isActive: boolean;
 
-  @Column({ default: 0 })
+  @Column({ name: 'rating', default: 0 }) // Especifica el nombre de la columna y su valor predeterminado
   rating: number;
 }
-

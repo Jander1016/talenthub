@@ -40,33 +40,35 @@ import { DetailWishlistModule } from './detail_wishlist/detail_wishlist.module';
       username:'root',
       password:'Espapo1986+',
       database:'db_talenthub',
-      entities:[Client, Service, Talent, Stack, Wishlist, DetailWishlist ],
-      synchronize:true
+      entities:[Admin, Talent, Stack, TalentsStack, Service, Client, Wishlist, DetailWishlist],
+      synchronize:false
     }),
 
-
-    ClientsModule,
-
-
-    ServicesModule,
-
-
+    Admin,
     AdminsModule,
 
-
+    Talent,
     TalentsModule,
 
-
+    Stack,
     StacksModule,
 
-
+    TalentsStack,
     TalentsStacksModule,
 
+    Service,
+    ServicesModule,
 
+    Client,
+    ClientsModule,
+
+    Wishlist,
     WishlistsModule,
 
+    DetailWishlist,
+    DetailWishlistModule
 
-    DetailWishlistModule],
+    ],
     
   controllers: [AppController],
   providers: [AppService],

@@ -1,14 +1,13 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity({ name: 'admins' }) // Especifica el nombre de la tabla en la base de datos
 export class Admin {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   admin_id: string;
 
-
-  @Column()
+  @Column({ name: 'email', nullable: false }) // Especifica el nombre de la columna y que no puede ser nula
   email: string;
 
-  @Column()
+  @Column({ name: 'password', nullable: false }) // Especifica el nombre de la columna y que no puede ser nula
   password: string;
 }

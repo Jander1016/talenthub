@@ -39,15 +39,18 @@ export class TalentsController {
   }
 
   @Put(':talent_id')
-  async update(@Param('talent_id') talent_id, @Body() updateTalentDto: UpdateTalentDto) {
-    const updatedTalent = await this.talentsService.update(talent_id, updateTalentDto);
+  async update(@Param('talent_id') talent_id: string, @Body() updateTalentDto: UpdateTalentDto) {
+    try {
+      const updatedTalent = await this.talentsService.update(talent_id, updateTalentDto);
+      
       if (!updatedTalent) {
         return { message: `Talent with ID ${talent_id} not found` };
       }
+      
       return updatedTalent;
     } catch (error) {
       return { message: error.message };
-    }
+    }}
   
 
     @Delete(':talent_id')

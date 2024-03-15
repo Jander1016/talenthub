@@ -27,10 +27,11 @@ export class TalentsService {
 
   async update(talent_id, updateTalentDto: UpdateTalentDto): Promise<Talent> {
     const existingTalent = await this.talentsRepository.findOne(talent_id);
+  
     if (!existingTalent) {
       throw new NotFoundException(`Talent with ID ${talent_id} not found`);
     }
-
+  
     const updatedTalent = this.talentsRepository.merge(existingTalent, updateTalentDto);
     return this.talentsRepository.save(updatedTalent);
   }

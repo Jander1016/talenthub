@@ -7,13 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server src/talents.json --port 3001"
+    "server": "json-server src/app/api/talents.json --port 3001"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.18",
+    "axios": "^1.6.8",
+    "cloudinary": "^2.0.3",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.1.0",
     "flowbite": "^2.3.0",

@@ -9,8 +9,8 @@
       "location": "Madrid-España",
       "name_service": "Desarrollador Front End",
       "name_stack": [
-        "Java Script",
-        "React",
+        "Java Script /",
+        "React /",
         "Angular"
       ],
       "talent_description": "Apasionada por el diseño web y en el mejoramiento de la experiencia del cliente"
@@ -24,8 +24,8 @@
       "location": "Valencia-España",
       "name_service": "Desarrollador Back End",
       "name_stack": [
-        "MySQL",
-        "Mongo DB",
+        "MySQL /",
+        "Mongo DB /",
         "Express"
       ],
       "talent_description": "Experiencia en el diseño de base de datos y el uso de la arquitectura hexagonal."
@@ -39,10 +39,10 @@
       "location": "Barcelona-España",
       "name_service": "Desarrollador Web Full Stack",
       "name_stack": [
-        "MySQL",
-        "Mongo DB",
-        "Express",
-        "Java Script",
+        "MySQL /",
+        "Mongo DB /",
+        "Express 7",
+        "Java Script /",
         "React"
       ],
       "talent_description": "Experiencia en proyectos front end y back end en diversas instituciones"
@@ -56,9 +56,9 @@
       "location": "Asturias-España",
       "name_service": "Diseñadora UX/UI",
       "name_stack": [
-        "Figma",
-        "Canva",
-        "Photoshop",
+        "Figma /",
+        "Canva /",
+        "Photoshop /",
         "Premier"
       ],
       "talent_description": "Reconozco la importancia de la experiencia del usuario y cunmplimiento de los requisitos del cliente."

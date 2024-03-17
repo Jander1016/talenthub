@@ -1,28 +1,12 @@
 "use client";
-import React, { useEffect, useState } from 'react';
 import TalentCard from '@/components/Cards/TalentCard';
-import axios from 'axios';
-import RootLayout from '../layout';
-import useFetch from '@/components/Services/useFetch';
+import useFetchApi from '@/components/Services/useFetchApi';
 
-interface Talent {
-    id: string;
-    name_talent: string;
-    nro_identification: string;
-    password: string;
-    avatar: string;
-    email: string;
-    location: string;
-    personal_page: string,
-    is_active: boolean;
-    name_service: string;
-    talent_description: string;
-    name_stack: string;
-}
+
 
 const TalentsPage: React.FC = () => {
 
-    const {data: talent} = useFetch('http://localhost:3001/talents/')
+    const {data: talent} = useFetchApi('http://localhost:3001/talents/')
 
    
     return (

@@ -1,5 +1,5 @@
 "use client";
-import useFetch from '../Services/useFetch';
+import useFetch from '../Services/useFetchApi';
 import SectionTitle from "../Common/SectionTitle";
 import TalentCard from './TalentCard';
 

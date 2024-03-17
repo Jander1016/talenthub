@@ -9,6 +9,7 @@ import Search from "../Search/Search"
 import { FiLogIn } from "react-icons/fi";
 import { FaCartArrowDown } from "react-icons/fa6";
 
+
 const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -169,9 +170,7 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div>
-                <Search />
-              </div>
+              
               <div className="flex items-center justify-center
                pr-8 lg:pr-0">
                 <Link

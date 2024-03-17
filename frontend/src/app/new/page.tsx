@@ -12,4 +12,4 @@ export function NewTalentPage () {
 
 
 }
-export NewTalentPage
+export default NewTalentPage

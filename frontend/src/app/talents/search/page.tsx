@@ -1,4 +1,18 @@
-// SearchContext.js
+// import Search from '@/components/Search/Search';
+// import React from 'react';
+
+// function Page() {
+//   return (
+//     <div>
+//         <Search placeholder={'Ingrese su búsqueda aquí'} />
+//     </div>
+//   );
+// }
+
+// export default Page;
+
+
+
 import React, { createContext, useState, ReactNode } from 'react';
 
 interface SearchContextType {

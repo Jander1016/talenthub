@@ -1,27 +1,47 @@
+"use client";
+import React, { useEffect, useState } from 'react';
 import TalentCard from '@/components/Cards/TalentCard';
-import axios from 'axios'
+import axios from 'axios';
+import RootLayout from '../layout';
+import useFetch from '@/components/Services/useFetch';
 
-async function LoadTalents() { // esta función ejecuta en el backend por lo tanto para axios hay que colocar la ruta
-//  const result = await pool.query('SELECT * FROM talents') // para mysql
-
-const {talents}= await axios.get('http://localhost:3000/api/talents') // talents = data si asi aparece en la api
- console.log(talents)
+interface Talent {
+    id: string;
+    name_talent: string;
+    nro_identification: string;
+    password: string;
+    avatar: string;
+    email: string;
+    location: string;
+    personal_page: string,
+    is_active: boolean;
+    name_service: string;
+    talent_description: string;
+    name_stack: string;
 }
 
+const TalentsPage: React.FC = () => {
 
-async function TalentsPage() {
-    const talents = await LoadTalents();
-    
+    const {data: talent} = useFetch('http://localhost:3001/talents/')
 
+   
     return (
-        <div className="grid gap-4 grid-cols-4"> TalentsPage
-        {talents.map(talent => (
-            
-                <TalentCard talent = {talent} key = {talent.id}/>
-           
-            ) )}
+  
+    <>
+        <section className="py-26 md:py-14 lg:py-14 text-black">
+            <div className="container text-4xl text-center p-10 mt-5">
+                <h1>Nuestros Talentos</h1>
 
-        </div> 
-    )     
-}
-export default TalentsPage
+                
+            </div>
+            <div>
+                <TalentCard talent ={talent}/>
+            </div>
+        </section>
+        
+        
+    </>
+    );
+   };
+   
+   export default TalentsPage;

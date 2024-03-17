@@ -1,5 +1,5 @@
 import { ThemeProvider } from "next-themes";
-import { SearchProvider } from "./search/page"; 
+import { SearchProvider } from "@/app/talents/search/page"; 
 
 export function Providers({ children }) {
  return (

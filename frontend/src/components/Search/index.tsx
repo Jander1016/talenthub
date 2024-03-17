@@ -1,24 +1,22 @@
 'use client';
-import { useContext } from 'react';
-import { SearchContext } from '@/app/search/page';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import useDebouncedCallback from '../Services/useDebounceCallback';
+
 
 function Search ({ placeholder} : { placeholder: string}) {
-//     const searchParams = useSearchParams()
-//     const pathname = usePathname() // para actualizar la URL
-//     const { replace } = useRouter() // método de useRouter
+    const searchParams = useSearchParams()
+    const pathname = usePathname() // para actualizar la URL
+    const { replace } = useRouter() // método de useRouter
     
-// const HandleSearch = (term:string) => {
-//     const params = new URLSearchParams(searchParams);
-//     if (term) {
-//         params.set('query', term) // que me ubique el campo search me traiga el dato
-//     } else {
-//         params.delete('query') // sino que lo borre de la URL
-//     }
-//     //generar la URL y que se cambie
-//     replace(`${pathname}?${params.toString()}`)
-// }
+const HandleSearch = (term:string) => {
+    const params = new URLSearchParams(searchParams);
+    if (term) {
+        params.set('query', term) // que me ubique el campo search me traiga el dato
+    } else {
+        params.delete('query') // sino que lo borre de la URL
+    }
+    //generar la URL y que se cambie
+    replace(`${pathname}?${params.toString()}`)
+}
 
 
 
@@ -34,7 +32,7 @@ function Search ({ placeholder} : { placeholder: string}) {
                 </div>
                 <input 
                     type="search" 
-                    onChange={(event) => {handleSearch(event.target.value)}}
+                    onChange={(event) => {HandleSearch(event.target.value)}}
                     defaultValue={searchParams.get('query')?.toString()}
                     className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                     placeholder="Keyword...." 

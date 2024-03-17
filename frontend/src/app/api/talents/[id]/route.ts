@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import {pool} from '@/libs/mysql'
 import cloudinary from "@/libs/cloudinary";
 import processImage from "@/libs/processImage";
 import { unlink } from 'fs/promises';
 
-export async function GET (request, { params}) {
+export async function GET (request: NextRequest, { params}) {
     try {
         const result = await pool.query('SELECT * FROM talents WHERE id = ?' , [params.id]);
 
@@ -62,21 +62,22 @@ try {
 }
 
 
-export async function PUT (request, { params}) {
+export async function PUT (request: NextRequest, { params}) {
 
     try {
         const data = await request.formData();
-        const image = data.get("avatar");
+        const image= data.get("avatar")
         const updateData = {
             
             name: data.get("name"),
             service: data.get("name_service"),
             description: data.get("description"),
+            image: data.get("avatar"),
           
     }
 
         // creamos una variable global
-        let secure_url; 
+        // let secure_url:string; 
 
         if (!data.get("name")){
             return NextResponse.json(

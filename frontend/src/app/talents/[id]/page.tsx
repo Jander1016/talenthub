@@ -8,7 +8,7 @@ import HeartToggle from '@/components/Common/heartToggle';
 import Link from 'next/link';
 
 const TalentPage: React.FC = () => {
-  const { id } = useParams(); // Obtiene el parámetro de la URL usando useParams
+  const { id } = useParams(); 
 
   const { data, error } = useFetchApi('http://localhost:3001/talents/' + id);
   
@@ -19,7 +19,7 @@ const TalentPage: React.FC = () => {
   }, [error]);
 
   if (error || !data) {
-      return <div>Error: {error?.message || 'No se encontraron datos'}</div>;
+      return <div>Error: {'No se encontraron datos'}</div>;
   }
     return (
         <section className=" w-full flex justify-center items-center h-[calc(100vh-18rem)] ">

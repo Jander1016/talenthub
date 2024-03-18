@@ -22,6 +22,7 @@ interface Talent {
 
 function NewTalentPage() {
     const [talent, setTalent] = useState<Talent>({
+        id:"",
         name_talent: "",
         name_service: "",
         talent_description: "",

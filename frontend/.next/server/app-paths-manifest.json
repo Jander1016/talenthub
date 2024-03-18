@@ -1,6 +1,8 @@
 {
-  "/talents/page": "app/talents/page.js",
   "/talents/[id]/page": "app/talents/[id]/page.js",
   "/signin/page": "app/signin/page.js",
-  "/talents/edit/[id]/page": "app/talents/edit/[id]/page.js"
+  "/talents/edit/[id]/page": "app/talents/edit/[id]/page.js",
+  "/new/page": "app/new/page.js",
+  "/page": "app/page.js",
+  "/talents/page": "app/talents/page.js"
 }

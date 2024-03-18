@@ -19,10 +19,10 @@ const TalentsPage: React.FC = () => {
                 <h1>Nuestros Talentos</h1>
                               
             </div>
-            {/* <div>
+            <div className='py-26 p-4'>
                 <Search placeholder={''} />
-            </div> */}
-            <div>
+            </div>
+            <div className='mt-4'>
                 <TalentCard talent ={talent}/>
             </div>
         </section>

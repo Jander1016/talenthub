@@ -70,36 +70,36 @@ function NewTalentPage() {
         }
     }, [])
 
-    // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
-    //     const formData = new FormData();
-    //     formData.append('name_talent', talent.name_talent);
-    //     formData.append('name_service', talent.name_service);
-    //     formData.append('talent_description', talent.talent_description);
-    //     formData.append('nro_identification', talent.nro_identification);
-    //     formData.append('phone_number', talent.phone_number);
-    //     formData.append('password', talent.password);
-    //     formData.append('avatar', talent.avatar as Blob);
-    //     formData.append('email', talent.email);
-    //     formData.append('location', talent.location);
-    //     formData.append('personal_page', talent.personal_page);
-    //     formData.append('name_stack', talent.name_stack);
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('name_talent', talent.name_talent);
+        formData.append('name_service', talent.name_service);
+        formData.append('talent_description', talent.talent_description);
+        formData.append('nro_identification', talent.nro_identification);
+        formData.append('phone_number', talent.phone_number);
+        formData.append('password', talent.password);
+        formData.append('avatar', talent.avatar as Blob);
+        formData.append('email', talent.email);
+        formData.append('location', talent.location);
+        formData.append('personal_page', talent.personal_page);
+        formData.append('name_stack', talent.name_stack);
 
-    //     if (file) {
-    //         formData.append('avatar', file);
-    //     }
+        if (file) {
+            formData.append('avatar', file);
+        }
 
-    //     const response = await axios.post('http://localhost:3001/talents', formData, {
-    //         headers: {
-    //             'Content-Type': 'multipart/form-data'
-    //         }
-    //     });
-    //     console.log(response);
+        const response = await axios.post('http://localhost:3001/talents', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        console.log(response);
 
-    //     form.current?.reset();
-    //     router.refresh();
-    //     router.push('/talents');
-    // };
+        form.current?.reset();
+        router.refresh();
+        router.push('/talents');
+    };
 
     return (
         <section className="w-full flex justify-center items-center mt-[10rem] ">
@@ -268,11 +268,12 @@ function NewTalentPage() {
                         //         setFile(e.target.files ? e.target.files[0] : null);
                         //     }}
                         // /> */}
-                        <Link href={`/talents/edit/${talent.id}`}>
+                        <Link href={`/talents/${talent.id}`}>
                             <button 
                                 type="submit"
                                 className="flex justify-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    {params.id ? "Actualizar" : "Crear Talento"}
+                                    {/* {params.id ? "Actualizar" : "Crear Talento"} */}
+                                    Actualizar
                             </button>
                         </Link>           
                 </div>

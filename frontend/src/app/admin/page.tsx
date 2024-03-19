@@ -1,5 +1,5 @@
 "use client";
-import AdminCard from '@/components/Cards/AdminCard'
+import AdminTable from '@/components/Cards/AdminTable'
 import Search from '@/components/Search/index';
 import useFetchApi from '@/components/Services/useFetchApi';
 
@@ -12,16 +12,21 @@ const AdminPage: React.FC = () => {
     
    
     return (
+  
+    <>
+        <section className="w-full justify-center mt-12 py-26 md:py-14 lg:py-14 text-black">
+            
+            <div className='py-26 p-4'>
+                <Search placeholder={''} />
+            </div>
+            <div className='mt-6 flex justify-center'>
+                <AdminTable talent ={talent}/>
+            </div>
+        </section>
         
-        <div className="flex justify-center items center bg-white-300 h-full">
-
-            <Search />
-            <AdminCard />
-                
-        </div>
-    
-        )
-    
-    
-    }
-    export default AdminPage
+        
+    </>
+    );
+   };
+   
+   export default AdminPage;

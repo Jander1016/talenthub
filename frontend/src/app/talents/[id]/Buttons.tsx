@@ -11,7 +11,7 @@ function Buttons(Id) {
             <button className='text-white bg-red-500 hover:bg-red-700 py-2 px-3 rounded'
             onClick={async () => {
                 if (confirm('Está seguro de eliminar a este talento?')) {
-                    const response = await axios.delete('/api/talents/' + Id)
+                    const response = await axios.delete('/talents/' + Id)
                     if (response.status === 204) {
                         router.push('/talents')
                         router.refresh() // actualiza la página refrescandola para eliminar el producto

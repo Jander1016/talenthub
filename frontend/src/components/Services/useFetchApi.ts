@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const useFetch =  (url: string) => {
+const useFetchApi =  (url: string) => {
     const [data, setData] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
 
@@ -17,6 +17,7 @@ const useFetch =  (url: string) => {
         
         dataNew()
                 
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             }, []);
       
     
@@ -24,4 +25,4 @@ const useFetch =  (url: string) => {
     return { data, error };
 };
 
-export default useFetch;
+export default useFetchApi;

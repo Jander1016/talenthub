@@ -1,4 +1,8 @@
 {
+  "/admin/page": "app/admin/page.js",
   "/talents/edit/[id]/page": "app/talents/edit/[id]/page.js",
-  "/admin/page": "app/admin/page.js"
+  "/talents/page": "app/talents/page.js",
+  "/talents/newtalent/page": "app/talents/newtalent/page.js",
+  "/talents/search/page": "app/talents/search/page.js",
+  "/talents/[id]/page": "app/talents/[id]/page.js"
 }

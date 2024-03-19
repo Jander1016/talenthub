@@ -25,9 +25,7 @@ function AdminTable({ talent }: { talent: Talent[] }) {
           <th scope="col" className="px-12 py-3">
               Acciones
             </th>
-            <th scope="col" className="px-6 py-3">
-              Id
-            </th>
+            
             <th scope="col" className="px-6 py-3">
             Nombre del talento
             </th>
@@ -53,21 +51,21 @@ function AdminTable({ talent }: { talent: Talent[] }) {
                     <Link href={`/talents/edit/${data.id}`}>
                       <FaRegEdit className="w-7 h-7"/>
                     </Link>
-                    <Link href={`/talents/edit/${data.id}`}>
+                    <Link href={`/talents/${data.id}`}>
                       <RiDeleteBin5Line  className="w-7 h-7"/>
                     </Link>
                 
               </th>
-              <td className="px-6 py-4 text-sm ">
-                {data.id}
-              </td>
-              <td className="px-6 py-4 text-sm ">
+              <td className="px-6 py-4 text-sm text-center">
                 {data.name_talent}
               </td>
-              <td className="px-6 py-4 text-xl ">
+              <td className="px-6 py-4 text-sm text-center">
                 
               </td>
-              <td className="px-6 py-4 text-xl ">
+              <td className="px-6 py-4 text-xl text-center ">
+                
+              </td>
+              <td className="px-6 py-4 text-sm text-center">
               {data.is_active}
               </td>
             </tr>

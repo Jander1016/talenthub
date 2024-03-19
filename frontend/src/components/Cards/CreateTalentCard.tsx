@@ -1,7 +1,89 @@
-import React from 'react'
+"use client"
+
+import React, { useState, useRef } from 'react'
 import Link from 'next/link'
+import { useRouter, useParams } from 'next/navigation'
+import axios from 'axios'
+
+interface Talent {
+    id: string;
+    name_talent: string;
+    name_service: string;
+    talent_description: string;
+    nro_identification: string;
+    phone_number: string;
+    password: string;
+    avatar: File | null;
+    email: string;
+    location: string;
+    personal_page: string;
+    name_stack: string;
+}
 
 function CreateTalentCard() {
+
+    const [talent, setTalent] = useState<Talent>({
+        id:"",
+        name_talent: "",
+        name_service: "",
+        talent_description: "",
+        nro_identification: "",
+        phone_number: "",
+        password: "",
+        avatar: null,
+        email: "",
+        location: "",
+        personal_page: "",
+        name_stack: "",
+    });
+    const [file, setFile] = useState<File | null>(null);
+    const form = useRef<HTMLFormElement>(null);
+    const router = useRouter();
+    const params = useParams();
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setTalent(prevState => ({
+        ...prevState,
+        [name]: value
+    }));
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files ? e.target.files[0] : null;
+        setFile(file);
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('name_talent', talent.name_talent);
+            formData.append('name_service', talent.name_service);
+            formData.append('talent_description', talent.talent_description);
+            formData.append('nro_identification', talent.nro_identification);
+            formData.append('phone_number', talent.phone_number);
+            formData.append('password', talent.password);
+            formData.append('avatar', talent.avatar as Blob);
+            formData.append('email', talent.email);
+            formData.append('location', talent.location);
+            formData.append('personal_page', talent.personal_page);
+            formData.append('name_stack', talent.name_stack);
+    
+            if (file) {
+                formData.append('avatar', file);
+            }
+    
+            const response = await axios.post('http://localhost:3001/talents', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log(response);
+    
+            form.current?.reset();
+            router.refresh();
+            router.push('/talents');
+        };
 
   return (
     <section className="w-full flex justify-center items-center mt-[10rem] ">
@@ -110,6 +192,7 @@ function CreateTalentCard() {
                     <input 
                         id="file_input" 
                         type="file" 
+                        onChange={handleFileChange}
                         className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     />
             </div>
@@ -180,9 +263,9 @@ function CreateTalentCard() {
                             
                         </ul>
         
-                    </div>
+            </div>
                     
-                    <div className="flex items-start mb-6">
+            <div className="flex items-start mb-6">
                         <div className="flex items-center h-5">
                             <input 
                             id="remember" 
@@ -190,50 +273,25 @@ function CreateTalentCard() {
                             value="" 
                             className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
                         </div>
-                            <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
-                    </div >
-                    <div className="flex justify-center">
+                            <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Acepto <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">los términos y condiciones</a>.</label>
+            </div >
+            <div className="flex justify-center">
                         <button 
                         type="submit" 
                         className="flex justify-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Confirmar Subscripción
                         </button>
-                    </div><button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Confirmar Subscripción</button>
+            </div>
             
-            <div className="flex items-start mb-2">
-                <div className="flex items-center h-5">
-                    <input 
-                    id="remember" 
-                    type="checkbox" 
-                    value="" 
-                    className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
-                </div>
-                <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Acepto los <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">términos y condiciones</a>.</label>
-            </div >
-            
+                      
         </form>
             
-                {/* // {file && 
-                //     <Image
-                //         className="w-96 object-contain mx-auto my-4"
-                //         src={URL.createObjectURL(file)}
-                //         alt="talentImage"
-                //     />
-                // }
-                
-                // <label htmlFor="talentImage" className="block text-gray-700 text s-m font-bold mb-2">Avatar</label>
-                // <input
-                //     type="file"
-                //     className="shadow appearance-none border rounded w-full py-s px-3 mb-2"
-                //     onChange={(e) => {
-                //         setFile(e.target.files ? e.target.files[0] : null);
-                //     }}
-                // /> */}
 
-                <Link href={`/talents/edit/${talent.id}`}>
+                <Link href={`/talents/${talent.id}`}>
                     <button 
                         type="submit"
                         className="flex justify-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            {params.id ? "Actualizar" : "Crear Talento"}
+                            {/* {params.id ? "Actualizar" : "Crear Talento"} */}
+                        Crar Talento
                     </button>
                 </Link>           
         </div>

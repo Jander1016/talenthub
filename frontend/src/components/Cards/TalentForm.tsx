@@ -45,7 +45,7 @@ function NewTalentPage() {
 
     useEffect(() => {
         if (params.id) {
-            axios.get(`http://localhost:3001/talents/${params.id}`)
+            axios.get(`http://localhost:3100/api/v1/talents/${params.id}`)
                 .then(response => {
                     const data = response.data;
                     setTalent({

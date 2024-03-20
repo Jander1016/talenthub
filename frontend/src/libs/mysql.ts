@@ -5,8 +5,8 @@ export const pool = mysql({
     config:{
         host: 'localhost',
         user: 'root',
-        password: '0512',
+        password: 'root',
         port: 3306,
-        database: 'nextmysqlcrud'
+        database: 'db_talenthub'
     }
 })

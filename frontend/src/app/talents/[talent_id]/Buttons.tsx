@@ -3,7 +3,7 @@ import React from 'react'
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-function Buttons(Id) {
+function Buttons(Id:string) {
 
     const router = useRouter() // para que navegue a la página de talents después de eliminar
   return (
@@ -14,7 +14,7 @@ function Buttons(Id) {
                     const response = await axios.delete('/api/talents/' + Id)
                     if (response.status === 204) {
                         router.push('/talents')
-                        router.refresh() // actualiza la página refrescandola para eliminar el producto
+                        router.reload() // actualiza la página refrescandola para eliminar el producto
                     }
                 }
             }}

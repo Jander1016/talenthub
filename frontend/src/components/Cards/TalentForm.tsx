@@ -2,14 +2,16 @@
 import { useRef, useState, useEffect } from "react"
 import axios from "axios";
 import { useRouter, useParams } from 'next/navigation'
-import useFetchApi from '@/components/Services/useFetchApi'
-import Image from "next/image";
+import Link from "next/link";
+
 
 interface Talent {
+    id: string;
     name_talent: string;
     name_service: string;
     talent_description: string;
     nro_identification: string;
+    phone_number: string;
     password: string;
     avatar: File | null;
     email: string;
@@ -20,10 +22,12 @@ interface Talent {
 
 function NewTalentPage() {
     const [talent, setTalent] = useState<Talent>({
+        id:"",
         name_talent: "",
         name_service: "",
         talent_description: "",
         nro_identification: "",
+        phone_number: "",
         password: "",
         avatar: null,
         email: "",
@@ -49,10 +53,12 @@ function NewTalentPage() {
                 .then(response => {
                     const data = response.data;
                     setTalent({
+                        id : data.id,
                         name_talent: data.name_talent,
                         talent_description: data.talent_description,
                         name_service: data.name_service,
                         nro_identification: data.nro_identification,
+                        phone_number: data.phone_number,
                         password: data.password,
                         avatar: data.avatar,
                         email: data.email,
@@ -62,6 +68,7 @@ function NewTalentPage() {
                     });
                 })
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -71,6 +78,7 @@ function NewTalentPage() {
         formData.append('name_service', talent.name_service);
         formData.append('talent_description', talent.talent_description);
         formData.append('nro_identification', talent.nro_identification);
+        formData.append('phone_number', talent.phone_number);
         formData.append('password', talent.password);
         formData.append('avatar', talent.avatar as Blob);
         formData.append('email', talent.email);
@@ -82,7 +90,7 @@ function NewTalentPage() {
             formData.append('avatar', file);
         }
 
-        const response = await axios.post('http://localhost:3001/talents', formData, {
+        const response = await axios.post('http://localhost:3100/api/v1/talents', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -121,6 +129,9 @@ function NewTalentPage() {
                             type="email" 
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             placeholder="john.doe@company.com" 
+                            onChange={handleChange}
+                            value={talent.email}
+                            name="email" 
                             required />
                         </div>
                         <div>
@@ -128,6 +139,9 @@ function NewTalentPage() {
                             <input type="text" 
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             placeholder="X46789...." 
+                            onChange={handleChange}
+                            value={talent.nro_identification}
+                            name="nro_identification"
                             required />
                         </div> 
                         <div>
@@ -136,7 +150,10 @@ function NewTalentPage() {
                             type="tel" 
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             placeholder="+34 123-45-678" 
-                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
+                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                            onChange={handleChange}
+                            value={talent.phone_number}
+                            name="nro_identification" 
                             required />
                         </div>
                         <div>
@@ -144,13 +161,20 @@ function NewTalentPage() {
                             <input 
                             type="text" 
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                            placeholder="Madrid - España" required />
+                            placeholder="Madrid - España"
+                            onChange={handleChange}
+                            value={talent.location}
+                            name="location" 
+                            required />
                         </div> 
                         <div>
                             <label className="block mb-2 text-md font-semibold sm:text-md text-gray-900 dark:text-white">Página Personal</label>
                             <input type="url" 
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                            placeholder="http ...." 
+                            placeholder="http ...."
+                            onChange={handleChange}
+                            value={talent.personal_page}
+                            name="personal_page"
                             required />
                         </div>
                         
@@ -159,7 +183,10 @@ function NewTalentPage() {
                             <input 
                             type="password" 
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                            placeholder="•••••••••" 
+                            placeholder="•••••••••"
+                            onChange={handleChange}
+                            value={talent.password}
+                            name="password"
                             required />
                         </div> 
                         <div className="mb-2">
@@ -168,6 +195,9 @@ function NewTalentPage() {
                             type="password" 
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             placeholder="•••••••••" 
+                            onChange={handleChange}
+                            value={talent.password}
+                            name="password"
                             required />
                         </div> 
 
@@ -188,7 +218,10 @@ function NewTalentPage() {
                                 id="message" 
                                 rows={3} 
                                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                                placeholder="Apasionado(a) por el front end...">
+                                placeholder="Apasionado(a) por el front end..."
+                                onChange={handleChange}
+                                value={talent.talent_description}
+                                name="talent_description">
                             </textarea>
 
                         </div>
@@ -199,114 +232,51 @@ function NewTalentPage() {
                             rows={3} 
                             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             placeholder="Javascript , / MySQL , / Angular , /"
+                            onChange={handleChange}
+                            value={talent.name_stack}
+                            name="name_stack"
                             ></textarea>
                     </div> 
                     
-                    <div className="grid grid-col-3 mb-4">
-                        
-                        <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Tipo de suscripción</h3>
-                        <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                            <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                                <div className="flex items-center ps-3">
-                                    <input 
-                                    type="radio" 
-                                    value="" 
-                                    name="list-radio" 
-                                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
-                                    />
-                                    <label  className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Gratis- 7 dias</label>
-                                </div>
-                            </li>
-                            <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                                <div className="flex items-center ps-3">
-                                    <input 
-                                    type="radio" 
-                                    value="" 
-                                    name="list-radio" 
-                                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
-                                    />
-                                    <label className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">6 meses-20€</label>
-                                </div>
-                            </li>
-                            <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                                <div className="flex items-center ps-3">
-                                    <input 
-                                    id="horizontal-list-radio-military" 
-                                    type="radio" 
-                                    value="" 
-                                    name="list-radio" 
-                                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" 
-                                    />
-                                    <label  className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">12 meses -35€</label>
-                                </div>
-                            </li>
-                            
-                        </ul>
-
-                    </div>
                     
-                    <div className="flex items-start mb-6">
+                    
+                    <div className="flex items-start mb-2">
                         <div className="flex items-center h-5">
-                        <input 
-                        id="remember" 
-                        type="checkbox" 
-                        value="" 
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
+                            <input 
+                            id="remember" 
+                            type="checkbox" 
+                            value="" 
+                            className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
                         </div>
-                        <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
+                        <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Confirmar <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">los cambios</a>.</label>
                     </div >
-                    <div className="flex justify-center">
-                        <button 
-                        type="submit" 
-                        className="flex justify-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Confirmar Subscripción
-                        </button>
-                    </div>
+                    
                 </form>
-                    {/* <form
-                        onSubmit={handleSubmit}
-                        ref={form}>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            placeholder="name"
-                            onChange={handleChange}
-                            value={talent.name_talent}
-                            name="name_talent"
-                        />
-                        {file && 
-                            <Image
-                                className="w-96 object-contain mx-auto my-4"
-                                src={URL.createObjectURL(file)}
-                                alt="talentImage"
-                            />
-                        }
-                        <label htmlFor="name_service">Servicio</label>
-                        <input
-                            type="text"
-                            placeholder="servicio"
-                            onChange={handleChange}
-                            value={talent.name_service}
-                            name="name_service"
-                        />
-                        <label htmlFor="talentImage" className="block text-gray-700 text s-m font-bold mb-2">Avatar</label>
-                        <input
-                            type="file"
-                            className="shadow appearance-none border rounded w-full py-s px-3 mb-2"
-                            onChange={(e) => {
-                                setFile(e.target.files ? e.target.files[0] : null);
-                            }}
-                        />
-                        <textarea
-                            rows={3}
-                            placeholder="Breve descripción..."
-                            onChange={handleChange}
-                            value={talent.talent_description}
-                            name="talent_description"
-                        />
-                        <button type="submit">
-                            {params.id ? "Actualizar" : "Crear Talento"}
-                        </button>
-                    </form> */}
+                    
+                        {/* // {file && 
+                        //     <Image
+                        //         className="w-96 object-contain mx-auto my-4"
+                        //         src={URL.createObjectURL(file)}
+                        //         alt="talentImage"
+                        //     />
+                        // }
+                        
+                        // <label htmlFor="talentImage" className="block text-gray-700 text s-m font-bold mb-2">Avatar</label>
+                        // <input
+                        //     type="file"
+                        //     className="shadow appearance-none border rounded w-full py-s px-3 mb-2"
+                        //     onChange={(e) => {
+                        //         setFile(e.target.files ? e.target.files[0] : null);
+                        //     }}
+                        // /> */}
+                        <Link href={`/talents/${talent.id}`}>
+                            <button 
+                                type="submit"
+                                className="flex justify-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    {/* {params.id ? "Actualizar" : "Crear Talento"} */}
+                                    Actualizar
+                            </button>
+                        </Link>           
                 </div>
             </div>
         </section>   

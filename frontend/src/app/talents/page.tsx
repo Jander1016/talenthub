@@ -4,7 +4,7 @@ import Search from '@/components/Search/index';
 // import useFetch from '@/components/Services/useFetchApi';
 
 const TalentsPage: React.FC = async () => {
-    const listdata = await fetch('http://localhost:3100/api/v1/talents/')
+    const listdata = await fetch('http://localhost:3100/api/v1/talents')
     const talent = await listdata.json()
 
     return (

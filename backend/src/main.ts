@@ -17,7 +17,7 @@ async function bootstrap() {
 
 
   const config = new DocumentBuilder()
-    .setTitle('API DOCUMNETATION')
+    .setTitle('API DOCUMENTATION')
     .setDescription('The talenthub API description')
     .setVersion('1.0')
     .addTag('talents')

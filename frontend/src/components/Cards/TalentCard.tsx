@@ -17,7 +17,7 @@ interface Talent {
 
 function TalentCard({ talent }: { talent: Talent}) {
   return (
-      <div className="bg-grey rounded-lg border-gray-900 mb-3 p-4 hover:bg-gray-100 hover: cursor pointer">
+      <div className="bg-grey rounded-lg border-gray-900 mb-3 p-4hover: cursor pointer">
     
                 <div className="grid grid-cols-1 gap-x-20 gap-y-10 md:grid-cols-2 lg:grid-cols-3 p-4 ">
                   {talent && talent.map((data: any) => (

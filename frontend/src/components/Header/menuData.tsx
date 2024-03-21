@@ -10,41 +10,16 @@ const menuData: Menu[] = [
 
   {
     id: 3,
-    title: "Contacto",
-    path: "/contact",
+    title: "Nuevo Talento",
+    path: "/signin",
     newTab: false,
   },
   {
     id: 4,
     title: "Talentos",
+    path: "/talents",
     newTab: false,
-    submenu: [
-      {
-        id: 41,
-        title: "Front End",
-        path: "/about",
-        newTab: false,
-      },
-      {
-        id: 42,
-        title: "Back End",
-        path: "/contact",
-        newTab: false,
-      },
-      {
-        id: 43,
-        title: "Full Stack",
-        path: "/blog",
-        newTab: false,
-      },
-      {
-        id: 46,
-        title: "Diseñador UX/UI ",
-        path: "/signin",
-        newTab: false,
-      },
-      
-    ],
+    
   },
 ];
 export default menuData;

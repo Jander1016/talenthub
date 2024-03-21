@@ -1,49 +1,42 @@
 'use client'
 
-import axios, { AxiosResponse } from "axios";
+// import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 
-type Data<T> =T | null
+// type Data<T> =T | null
 
-interface FetchResult<T> {
-    data: Data<T>;
-    isLoading: boolean;
-    error: string | null;
-}
+// interface FetchResult<T> {
+//     data: Data<T>;
+//     isLoading: boolean;
+//     error: string | null;
+// }
 
-export const useFetchApi = <T>(url: string): FetchResult<T>=> {
-    const [data, setData] = useState<Data<T>>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+// export const useFetchApiApi = <T>(url: string): FetchResult<T>=> {
+//     const [data, setData] = useState<Data<T>>(null);
+//     const [isLoading, setIsLoading] = useState<boolean>(false);
+//     const [error, setError] = useState<string | null>(null);
+
+const useFetchApi = (url: string) => {
+    const [data, setData] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
 
+    const dataNew = async () => {
+        const listdata = await fetch(url)
+        const data = await listdata.json()
+        if (!data) setError("No hay data")
+        else setData(data)
+    }
     useEffect(() => {
-        const controller = new AbortController();
 
-        setIsLoading(true)
+        dataNew()
 
-        axios
-        .get(url, {
-            signal: controller.signal,
-            
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-                'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
-            }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-        } )
-        .then((response:AxiosResponse<Data<T>>) => {
-            setData(response.data)
-        })
-        .catch((error:any) => setError(error.message))
-        .finally(() => setIsLoading(false));
 
-        return () => controller.abort();
-    }, [url]);
 
-    return { data, isLoading, error };
+    return { data, error };
+
 };
 
-// export default useFetchApi;
+export default useFetchApi;

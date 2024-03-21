@@ -1,9 +1,9 @@
-import { Entity, PrimaryColumn, Column, OneToMany } from 'typeorm';
+import { Entity, Column, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Wishlist } from '../../wishlists/entities/wishlist.entity'; // Asegúrate de importar correctamente la entidad Wishlist
 
 @Entity({ name: 'clients' })
 export class Client {
-  @PrimaryColumn({ type: 'varchar', length: 40 })
+  @PrimaryGeneratedColumn("uuid")
   client_id: string;
 
   @Column({ type: 'varchar', length: 20, nullable: false })

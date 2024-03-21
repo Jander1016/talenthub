@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 
-
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -30,6 +29,7 @@ import { WishlistsModule } from './wishlists/wishlists.module';
 
 import { DetailWishlist } from './detail_wishlist/entities/detail_wishlist.entity';
 import { DetailWishlistModule } from './detail_wishlist/detail_wishlist.module';
+import { AuthModule } from './auth/auth.module';
 
 config(); // Cargar variables de entorno desde el archivo .env
 const {DB_TYPE,
@@ -74,7 +74,8 @@ const {DB_TYPE,
     WishlistsModule,
 
     DetailWishlist,
-    DetailWishlistModule
+    DetailWishlistModule,
+    AuthModule
   ],
 
   controllers: [AppController],

@@ -1,36 +1,39 @@
-import { Controller, Get, Post, Body, Param, Delete, Put, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete,  UsePipes, ValidationPipe, Patch } from '@nestjs/common';
 import { ClientsService } from './clients.service';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
-import { ClientValidationPipe } from '../pipes/client-validation.pipe';
+// import { ClientValidationPipe } from '../pipes/client-validation.pipe';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('api/clients')
+@ApiTags('clients')
+@Controller('api/v1/clients')
 export class ClientsController {
   constructor(private readonly clientsService: ClientsService) {}
 
   @Post()
-  @UsePipes(new ValidationPipe()) // Utiliza el ValidationPipe proporcionado por NestJS
-  async create(@Body() createClientDto: CreateClientDto) {
+  // @UsePipes(new ValidationPipe()) // Utiliza el ValidationPipe proporcionado por NestJS
+  create(@Body() createClientDto: CreateClientDto) {
     try {
-      return await this.clientsService.create(createClientDto);
+      const client = this.clientsService.create(createClientDto);
+      return client 
     } catch (error) {
       return { message: error.message };
     }
   }
 
   @Get()
-  async findAll() {
+  findAll() {
     try {
-      return await this.clientsService.findAll();
+      return this.clientsService.findAll();
     } catch (error) {
       return { message: error.message };
     }
   }
 
   @Get(':client_id')
-  async findOne(@Param('client_id') client_id: string) {
+   findOne(@Param('client_id') client_id: string) {
     try {
-      const client = await this.clientsService.findOne(client_id);
+      const client = this.clientsService.findOne(client_id);
       if (!client) {
         return { message: `Client with ID ${client_id} not found` };
       }
@@ -40,7 +43,7 @@ export class ClientsController {
     }
   }
 
-  @Put(':client_id')
+  @Patch(':client_id')
   @UsePipes(new ValidationPipe()) // Utiliza el ValidationPipe proporcionado por NestJS
   async update(@Param('client_id') client_id: string, @Body() updateClientDto: UpdateClientDto) {
     try {

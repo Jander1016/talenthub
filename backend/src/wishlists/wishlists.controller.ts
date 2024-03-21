@@ -2,7 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { WishlistsService } from './wishlists.service';
 import { CreateWishlistDto } from './dto/create-wishlist.dto';
 import { UpdateWishlistDto } from './dto/update-wishlist.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('wishlists')
 @Controller('/api/v1/wishlists')
 export class WishlistsController {
   constructor(private readonly wishlistsService: WishlistsService) {}

@@ -4,7 +4,9 @@ import { CreateStackDto } from './dto/create-stack.dto';
 import { UpdateStackDto } from './dto/update-stack.dto';
 import { StackValidationPipe } from '../pipes/stack-validation.pipe';
 import { Stack } from './entities/stack.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('stacks')
 @Controller('api/v1/stacks')
 export class StacksController {
   constructor(private readonly stacksService: StacksService) {}

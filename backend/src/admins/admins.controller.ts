@@ -2,8 +2,10 @@ import { Controller, Get, Post, Body, Param, Delete, Put, UsePipes, ValidationPi
 import { AdminsService } from './admins.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('api/admins')
+@ApiTags('admins')
+@Controller('api/v1/admins')
 export class AdminsController {
   constructor(private readonly adminsService: AdminsService) {}
 

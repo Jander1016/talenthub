@@ -1,47 +1,51 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Talent } from './entities/talent.entity';
-import { Repository } from 'typeorm';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CreateTalentDto } from './dto/create-talent.dto';
 import { UpdateTalentDto } from './dto/update-talent.dto';
+import { Repository } from 'typeorm';
+import { Talent } from './entities/talent.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { generateHash } from 'src/auth/utils/handleBcrypt';
 
 @Injectable()
 export class TalentsService {
   constructor(
     @InjectRepository(Talent)
-    private talentsRepository: Repository<Talent>,
-  ) {}
-
-  async create(createTalentDto: CreateTalentDto): Promise<Talent> {
-    const newTalent = this.talentsRepository.create(createTalentDto);
-    return this.talentsRepository.save(newTalent);
+    private readonly talentsRepository: Repository<Talent>,
+  ) {
+  }
+  async create(createTalentDto: CreateTalentDto) {
+    const { password } = createTalentDto
+    const hashedPassword = await generateHash(password)
+    return await this.talentsRepository.save({ ...createTalentDto, password:hashedPassword }) 
   }
 
-  async findAll(): Promise<Talent[]> {
+  async findAll() {
+    const talentlist = await this.talentsRepository.find()
+    if (!talentlist) throw new HttpException("TALENTS_NOT_FOUND", 404);
     return this.talentsRepository.find();
   }
 
-  async findOne(talent_id: string): Promise<Talent> {
-    return this.talentsRepository.findOne({ where: { talent_id } });
+  async findOne(id: string) {
+    const talentById = await this.talentsRepository.findOneBy({ talent_id: id })
+    if (!talentById) throw new HttpException("TALENT_NOT_FOUND", 404);
+    return this.talentsRepository.findOneBy({ talent_id: id });
   }
 
-  async update(talent_id: string, updateTalentDto: UpdateTalentDto): Promise<Talent> {
-    const existingTalent = await this.talentsRepository.findOne({ where: { talent_id } });
-    if (!existingTalent) {
-      throw new NotFoundException(`Talent with ID ${talent_id} not found`);
+  async update(id: string, updateTalentDto: UpdateTalentDto) {
+    const talentById = await this.talentsRepository.findOneBy({ talent_id: id })
+    if (!talentById) throw new HttpException("TALENT_NOT_FOUND", 404);
+
+    const { password } = updateTalentDto
+    if (password) {
+      const hashedPassword = await generateHash(password)
+      await this.talentsRepository.update(id, {...updateTalentDto, password: hashedPassword});
     }
-  
-  
-    this.talentsRepository.merge(existingTalent, updateTalentDto);
-  
-  
-    return this.talentsRepository.save(existingTalent);
+    else await this.talentsRepository.update(id, updateTalentDto);
+
+    return this.talentsRepository.findOneBy({ talent_id: id });
   }
 
-  async remove(talent_id: string): Promise<void> {
-    const result = await this.talentsRepository.delete(talent_id);
-    if (result.affected === 0) {
-      throw new NotFoundException(`Talent with ID ${talent_id} not found`);
-    }
+  remove(id: string) {
+    return `This action removes a #${id} talent`;
   }
 }

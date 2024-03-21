@@ -4,36 +4,43 @@ import { UpdateClientDto } from './dto/update-client.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Client } from './entities/client.entity';
 import { Repository } from 'typeorm';
+import { generateHash } from 'src/auth/utils/handleBcrypt';
 
 @Injectable()
 export class ClientsService {
   constructor(
     @InjectRepository(Client)
     private clientsRepository: Repository<Client>,
-  ) {}
+  ) { }
 
   async create(createClientDto: CreateClientDto): Promise<Client> {
-    const newClient = this.clientsRepository.create(createClientDto);
-    return this.clientsRepository.save(newClient);
+    const { password } = createClientDto
+    const hashedPassword = await generateHash(password)
+    return await this.clientsRepository.save({ ...createClientDto, password: hashedPassword });
   }
 
   async findAll(): Promise<Client[]> {
-    return this.clientsRepository.find();
+    return await this.clientsRepository.find({});
   }
 
   async findOne(client_id: string): Promise<Client> {
-    return this.clientsRepository.findOne({ where: { client_id } });
+    const clientById = await this.clientsRepository.findOneBy({ client_id });
+    return clientById
   }
 
   async update(client_id: string, updateClientDto: UpdateClientDto): Promise<Client> {
+
     const existingClient = await this.clientsRepository.findOne({ where: { client_id } });
     if (!existingClient) {
       throw new NotFoundException(`Client with ID ${client_id} not found`);
     }
-  
+    const { password } = updateClientDto
+    if (password) {
+      const hashedPassword = await generateHash(password)
+      this.clientsRepository.merge({ ...existingClient, password: hashedPassword }, updateClientDto);
+    }
     // Merge the existing client with the updateClientDto
-    this.clientsRepository.merge(existingClient, updateClientDto);
-  
+   else this.clientsRepository.merge(existingClient, updateClientDto);
     // Save the updated client
     return this.clientsRepository.save(existingClient);
   }

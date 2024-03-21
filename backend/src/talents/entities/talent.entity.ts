@@ -9,7 +9,7 @@ export class Talent {
   name_talent: string;
 
 
-  @Column({ name: 'nro_identification', nullable: false })
+  @Column({ name: 'nro_identification', nullable: false , unique: true })
   nro_identification: string;
 
 
@@ -17,15 +17,17 @@ export class Talent {
   password: string;
 
 
-  @Column({ name: 'email', nullable: false })
+  @Column({ name: 'email', nullable: false, unique: true })
   email: string;
 
-
-  @Column({ name: 'avatar', nullable: true })
+  @Column({ name: 'avatar'})
   avatar: string;
 
-  @Column({ name: 'personal_page', nullable: true })
+  @Column({ name: 'personal_page', nullable: false })
   personal_page: string;
+
+  @Column({ name: 'talent_description'})
+  talent_description: string;
 
   @Column({ name: 'location', nullable: true })
   location: string;

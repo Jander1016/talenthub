@@ -19,7 +19,11 @@ CREATE table clients (
 
 CREATE table talents (
     talent_id varchar(40) primary key default(uuid()),
+<<<<<<< HEAD
     nro_identificacion varchar(10) unique not null,
+=======
+    nro_identification varchar(10) unique not null,
+>>>>>>> 5b5d4b35d4306b5877820e52ab38ea70813264df
     name_talent varchar(20) NOT NULL,
     password varchar(200) NOT NULL,
     email varchar(100) NOT NULL,
@@ -27,7 +31,11 @@ CREATE table talents (
     location varchar(25),
     personal_page varchar(200),
 	talent_description varchar(100),
+<<<<<<< HEAD
     is_active tinyint default 1
+=======
+    is_active tinyint default 0
+>>>>>>> 5b5d4b35d4306b5877820e52ab38ea70813264df
 );
 
 CREATE TABLE services (
@@ -51,19 +59,19 @@ create table talents_stacks(
     foreign key(stack_id) references stacks(stack_id)
 );
 
-create table whishlists(
-	whishlist_id varchar(40) primary key default(uuid()),
+create table wishlists(
+	wishlist_id varchar(40) primary key default(uuid()),
 	client_id varchar(40),
     foreign key(client_id) references clients(client_id)
 );
 
-create table detail_whishlist(
-	whishlist_id varchar(40),
+create table detail_wishlist(
+	wishlist_id varchar(40),
 	talent_id varchar(40),
     isactive tinyint default 1,
-    primary key(whishlist_id, talent_id),
+    primary key(wishlist_id, talent_id),
     foreign key(talent_id) references talents(talent_id),
-    foreign key(whishlist_id) references whishlists(whishlist_id)
+    foreign key(wishlist_id) references wishlists(wishlist_id)
 );
 
 create table subscriptions(
@@ -82,6 +90,3 @@ create table order_subscription(
     foreign key(subs_id) references subscriptions(subs_id),
     foreign key(talent_id) references talents(talent_id)
 )
-
-
-

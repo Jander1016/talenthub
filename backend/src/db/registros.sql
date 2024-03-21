@@ -7,7 +7,7 @@ VALUES
 ('Cliente5', 'password5', 'cliente5@example.com', 'https://randomuser.me/api/portraits/men/5.jpg', 1);
 
 
-INSERT INTO talents (nro_identificacion, name_talent, password, email, avatar, location, personal_page, talent_description, is_active)
+INSERT INTO talents (nro_identification, name_talent, password, email, avatar, location, personal_page, talent_description, is_active)
 VALUES 
 ('09738923S', 'John Doe', 'password123', 'john.doe@example.com', 'https://randomuser.me/api/portraits/men/7.jpg', 'Madrid', 'https://personalpage.com/johndoe', 'Full-stack Developer', 1),
 ('8990722G', 'Jane Smith', 'pass456', 'jane.smith@example.com', 'https://randomuser.me/api/portraits/women/6.jpg', 'Madrid', 'https://personalpage.com/janesmith', 'UI/UX Designer', 1),

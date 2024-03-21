@@ -1,0 +1,75 @@
+{
+  "talents": [
+    {
+      "id": "1",
+      "name_talent": "Antonia López",
+      "nro_identification": "X345678",
+      "phone_number":"+34 604874490",
+      "avatar": "/images/testimonials/author-05.png",
+      "personal_page": "al@github.com",
+      "location": "Madrid-España",
+      "is_active": "yes",
+      "name_service": "Desarrollador Front End",
+      "name_stack": [
+        "Java Script /",
+        "React /",
+        "Angular"
+      ],
+      "talent_description": "Apasionada por el diseño web y en el mejoramiento de la experiencia del cliente"
+    },
+    {
+      "id": "2",
+      "name_talent": "Pepito Zamora",
+      "nro_identification": "D345670",
+      "phone_number":"+34 604874445",
+      "avatar": "/images/testimonials/author-02.png",
+      "personal_page": "pz@github.com",
+      "location": "Valencia-España",
+      "is_active": "yes",
+      "name_service": "Desarrollador Back End",
+      "name_stack": [
+        "MySQL /",
+        "Mongo DB /",
+        "Express"
+      ],
+      "talent_description": "Experiencia en el diseño de base de datos y el uso de la arquitectura hexagonal."
+    },
+    {
+      "talent_id": "3",
+      "name_talent": "Robustiano Pedroza",
+      "nro_identification": "A345670",
+      "phone_number":"+34 604874467",
+      "avatar": "/images/testimonials/author-04.png",
+      "personal_page": "rd@github.com",
+      "location": "Barcelona-España",
+      "is_active": "no",
+      "name_service": "Desarrollador Web Full Stack",
+      "name_stack": [
+        "MySQL /",
+        "Mongo DB /",
+        "Express 7",
+        "Java Script /",
+        "React"
+      ],
+      "talent_description": "Experiencia en proyectos front end y back end en diversas instituciones"
+    },
+    {
+      "talent_id": "f35b",
+      "name_talent": "Macarena Flow",
+      "nro_identification": "X345670",
+      "phone_number":"+34 604874488",
+      "avatar": "/images/testimonials/author-03.png",
+      "personal_page": "mf@github.com",
+      "is_active": "yes",
+      "location": "Asturias-España",
+      "name_service": "Diseñadora UX/UI",
+      "name_stack": [
+        "Figma /",
+        "Canva /",
+        "Photoshop /",
+        "Premier"
+      ],
+      "talent_description": "Reconozco la importancia de la experiencia del usuario y cunmplimiento de los requisitos del cliente."
+    }
+  ]
+}
